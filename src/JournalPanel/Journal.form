@@ -31,7 +31,7 @@
             <properties>
               <font name="JetBrains Mono SemiBold" size="24" style="3"/>
               <foreground color="-394241"/>
-              <icon value="striveLogo.png"/>
+              <icon value="Images/striveLogo.png"/>
               <text value=" Strive"/>
             </properties>
           </component>
@@ -243,7 +243,7 @@
             </constraints>
             <properties>
               <background color="-16108447"/>
-              <icon value="h.png"/>
+              <icon value="Images/h.png"/>
               <text value=""/>
             </properties>
           </component>
@@ -255,7 +255,7 @@
             </constraints>
             <properties>
               <background color="-16108447"/>
-              <icon value="w.png"/>
+              <icon value="Images/w.png"/>
               <text value=""/>
             </properties>
           </component>
@@ -267,7 +267,7 @@
             </constraints>
             <properties>
               <background color="-16108447"/>
-              <icon value="j.png"/>
+              <icon value="Images/j.png"/>
               <text value=""/>
             </properties>
           </component>
@@ -279,7 +279,7 @@
             </constraints>
             <properties>
               <background color="-16108447"/>
-              <icon value="p.png"/>
+              <icon value="Images/p.png"/>
               <text value=""/>
             </properties>
           </component>
@@ -290,7 +290,7 @@
             <properties>
               <background color="-16108447"/>
               <foreground color="-394241"/>
-              <icon value="g.png"/>
+              <icon value="Images/g.png"/>
               <text value="Routine"/>
             </properties>
           </component>
