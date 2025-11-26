@@ -1,4 +1,4 @@
-package StrengthPanel;
+package Workout;
 
 import javax.swing.*;
 
