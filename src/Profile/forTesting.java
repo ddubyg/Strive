@@ -17,7 +17,7 @@ public class forTesting extends JFrame {
     public forTesting(){
         setContentPane(mainFrame);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setSize(430,800);
+        setSize(402,874);
         setTitle("Strive");
 
         setVisible(true);
