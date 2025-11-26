@@ -12,6 +12,7 @@ public class forTesting extends JFrame {
     private JButton TARGETButton;
     private JLabel strive_icon;
     private JButton EDITButton;
+    private JButton Confirm;
     private JLabel title_Label;
 
     public forTesting(){
