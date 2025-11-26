@@ -18,7 +18,9 @@ public class forTesting extends JFrame {
     private JButton confirm_button;
     private JPanel profile_panel;
     private JPanel edit_panel;
-    private JTextArea textArea1;
+    private JTextField textField1;
+    private JTextField cTextField;
+    private JComboBox comboBox1;
     private JLabel title_Label;
 
     private CardLayout cardLayout;
