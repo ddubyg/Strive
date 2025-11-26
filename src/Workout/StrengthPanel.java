@@ -18,4 +18,7 @@ public class StrengthPanel {
     private JLabel typeLabel;
     private JLabel setLabel;
     private JLabel nameLabel;
+    private JTextField minutesTextField;
+    private JLabel minutesLabel;
+    private JLabel durationLabel;
 }
