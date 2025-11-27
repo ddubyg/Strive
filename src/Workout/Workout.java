@@ -29,6 +29,7 @@ public class Workout extends JFrame {
     private JButton button3;
     private JButton button4;
     private JButton routineButton;
+    private JComboBox comboBox2;
 
     public Workout(){
         setContentPane(mainPanel);

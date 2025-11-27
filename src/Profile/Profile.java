@@ -5,7 +5,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class forTesting extends JFrame {
+public class Profile extends JFrame {
 
     private JPanel mainFrame;
     private JButton HOMEButton;
@@ -27,7 +27,7 @@ public class forTesting extends JFrame {
     private int currentIndex = 0;
     private JPanel[] panels;
 
-    public forTesting(){
+    public Profile(){
         setContentPane(mainFrame);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setSize(402,874);
@@ -85,7 +85,7 @@ public class forTesting extends JFrame {
     }
 
     public static void main(String[] args) {
-        new forTesting();
+        new Profile();
     }
 
 }

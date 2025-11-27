@@ -4,23 +4,13 @@ import javax.swing.*;
 
 public class StrengthPanel extends JFrame {
     private JPanel strengthPanel;
-    private JPanel header;
-    private JLabel titleLabel;
-    private JPanel optionPanel;
-    private JButton cardioBtn;
-    private JButton strengthBtn;
-    private JPanel exerciseNamePanel;
-    private JComboBox nameDropDown;
-    private JTextField setsTextField;
-    private JTextField repsTextField;
-    private JComboBox typeDropDown;
-    private JLabel repsLabel;
-    private JLabel typeLabel;
-    private JLabel setLabel;
-    private JLabel nameLabel;
-    private JLabel minutesLabel;
-    private JLabel durationLabel;
-    private JSpinner minutesSpinner;
+    private JPanel titlePanel;
+    private JButton CARDIOButton;
+    private JButton STRENGTHButton;
+    private JPanel cardioPanel;
+    private JComboBox comboBox1;
+    private JTextField textField1;
+    private JTextField textField2;
 
     public StrengthPanel() {
         setContentPane(strengthPanel);
