@@ -1,6 +1,8 @@
 package HomePage;
 
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class HomePage extends JFrame {
     private JPanel mainPanel;
@@ -15,10 +17,10 @@ public class HomePage extends JFrame {
     private JButton browseWorkoutButton;
     private JButton CANCELButton;
     private JButton STARTButton;
-    private JButton button5;
-    private JButton button6;
-    private JButton button7;
-    private JButton button8;
+    private JButton home;
+    private JButton workout;
+    private JButton journal;
+    private JButton profile;
     private JButton routineButton;
 
 
@@ -28,6 +30,34 @@ public class HomePage extends JFrame {
         setSize(402, 874);
         setVisible(true);
     }
+    // para sa browse workout
+    public void setBrowseWorkoutButton(){
+        browseWorkoutButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
+    }
+    // para sa cancel button
+    public void setCANCELButton(){
+        CANCELButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
+    }
+    //para sa start button
+    public void setSTARTButton(){
+        STARTButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
+    }
+
 
     public static void main(String[] args) {
         new HomePage();
