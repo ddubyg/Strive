@@ -2,13 +2,21 @@ package Exercises;
 
 public abstract class Exercise {
     private final String name;
-    private final BodyPart bodyPart;
-    private final MuscleGroup muscleGroup;
+    private BodyPart bodyPart;
+    private MuscleGroup muscleGroup;
+    private double distance;
+    private CardioType cardioExercise;
 
     public Exercise(String name, BodyPart bodyPart, MuscleGroup muscleGroup) {
         this.name = name;
         this.bodyPart = bodyPart;
         this.muscleGroup = muscleGroup;
+    }
+
+    public Exercise(String name, double distance, CardioType cardioExercise) {
+        this.name = name;
+        this.distance = distance;
+        this.cardioExercise = cardioExercise;
     }
 
     public String getName() {
@@ -21,6 +29,10 @@ public abstract class Exercise {
 
     public MuscleGroup getMuscleGroup() {
         return muscleGroup;
+    }
+
+    public double getDistance() {
+        return distance;
     }
 
     public abstract String getDescription();
