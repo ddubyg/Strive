@@ -1,10 +1,14 @@
 package HomePage;
 
+import JournalPanel.Journal;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+
 public class HomePage extends JFrame {
+    private Journal journal1;
     private JPanel mainPanel;
     private JPanel welcomePanel;
     private JCheckBox mondayCheckBox;
@@ -28,8 +32,16 @@ public class HomePage extends JFrame {
         setContentPane(mainPanel);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setSize(402, 874);
+
+        journal1 = new Journal();
+        journal1.setVisible(false);
+
         setVisible(true);
+        setJournal();
     }
+
+
+
     // para sa browse workout
     public void setBrowseWorkoutButton(){
         browseWorkoutButton.addActionListener(new ActionListener() {
@@ -82,6 +94,9 @@ public class HomePage extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
 
+                showPanel(1);
+                setVisible(false);
+                //journal1 = new Journal();
             }
         });
     }
@@ -106,10 +121,14 @@ public class HomePage extends JFrame {
     }
 
 
+    public void showPanel(int num){
+        journal1.setVisible(num == 1);
+    }
 
 
 
     public static void main(String[] args) {
         new HomePage();
     }
+
 }
