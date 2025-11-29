@@ -14,7 +14,6 @@ public class CreateAccount extends JFrame {
     private JTextField heightTextField;
     private JTextField weightTextfield;
     public JButton CREATEPROFILEButton;
-    public JButton BACKTOLOGINButton;
 
     public CreateAccount(){
 
