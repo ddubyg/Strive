@@ -32,17 +32,10 @@ public class StrengthPanel extends JFrame {
     private JTextField textField7;
 
     public StrengthPanel(){
-        /*setContentPane(mainPanel);
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setSize(402, 874);
-        setVisible(true);*/
 
     }
     public JPanel getMainPanel() {
         return mainPanel;
     }
 
-    /*public static void main(String[] args) {
-        new StrengthPanel();
-    }*/
 }

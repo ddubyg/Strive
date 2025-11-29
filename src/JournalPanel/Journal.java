@@ -32,35 +32,10 @@ public class Journal extends JFrame{
 
 
     public Journal(){
-       /* setContentPane(mainPanel);
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setSize(402,874);
-        setVisible(true);*/
+
     }
     public JPanel getMainPanel() {
         return mainPanel;
     }
 
-
-   /* public void clear(){
-        CLEARButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
-            }
-        });
-    }
-
-    public void save(){
-        SAVEButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
-            }
-        });
-    }
-
-    public static void main(String[] args) {
-        new Journal();
-    }*/
 }

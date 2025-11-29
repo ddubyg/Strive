@@ -349,6 +349,7 @@
             </constraints>
             <properties>
               <background color="-16108447"/>
+              <foreground color="-394241"/>
               <icon value="Images/g.png"/>
               <text value="Routine"/>
             </properties>

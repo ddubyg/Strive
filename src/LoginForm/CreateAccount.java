@@ -17,10 +17,7 @@ public class CreateAccount extends JFrame {
     public JButton BACKTOLOGINButton;
 
     public CreateAccount(){
-        /*setContentPane(mainPanel);
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setSize(402, 874);
-        setVisible(true);*/
+
     }
 
     public JPanel getMainPanel() {

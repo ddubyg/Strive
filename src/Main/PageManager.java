@@ -43,13 +43,9 @@ public class PageManager extends JFrame {
         container.add(cardio.getMainPanel(), "cardio");
 
         add(container);
-
-        // Show the home page first
         layout.show(container, "login");
 
         setVisible(true);
-
-        // Attach button actions
         hookNavigation();
     }
 
@@ -59,7 +55,6 @@ public class PageManager extends JFrame {
         createAccount.BACKTOLOGINButton.addActionListener(e -> layout.show(container, "login"));
         // --- GENERAL NAVIGATION (Home, Journal, Profile, Workout) ---
         login.ACCESSSTRIVEButton.addActionListener(e -> {
-            // In a real app, you would validate credentials here first
             layout.show(container, "home");
         });
         // HOME PAGE buttons
@@ -95,9 +90,6 @@ public class PageManager extends JFrame {
         cardio.workoutBtn.addActionListener(e -> layout.show(container, "strength"));
         cardio.journalBtn.addActionListener(e -> layout.show(container, "journal"));
         cardio.profilebtn.addActionListener(e -> layout.show(container, "profile"));
-
-
-        // Add more buttons depending on what you have
     }
 
     public static void main(String[] args) {

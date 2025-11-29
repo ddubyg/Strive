@@ -32,20 +32,11 @@ public class Profile extends JFrame {
     private JLabel title_Label;
 
     public Profile(){
-     /*   setContentPane(mainFrame);
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setSize(402,874);
-        setVisible(true);*/
+
     }
     public JPanel getMainPanel() {
         return mainFrame;
     }
 
-
-
-
-    /*public static void main(String[] args) {
-        new Profile();
-    }*/
 
 }

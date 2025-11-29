@@ -12,10 +12,7 @@ public class Login extends JFrame{
     public JButton ACCESSSTRIVEButton;
 
     public Login(){
-   /*     setContentPane(mainPanel);
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setSize(402,874);
-        setVisible(true);*/
+
     }
 
     public JPanel getMainPanel() {

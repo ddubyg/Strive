@@ -27,16 +27,9 @@ public class CardioPanel extends JFrame {
     public JButton routineButton;
 
     public CardioPanel() {
-     /*   setContentPane(strengthPanel);
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setSize(402, 874);
-        setVisible(true);*/
+
     }
     public JPanel getMainPanel() {
         return strengthPanel;
     }
-
-    /*public static void main(String[] args) {
-        new CardioPanel();
-    }*/
 }
