@@ -8,7 +8,7 @@ public class StrengthPanel extends JFrame {
     private JPanel mainPanel;
     private JPanel titlePanel;
     private JPanel lowerPanel;
-    private JButton CARDIOButton;
+    public JButton CARDIOButton;
     private JButton STRENGTHButton;
     private JPanel cardioPanel;
     private JTextField textField1;
@@ -23,23 +23,26 @@ public class StrengthPanel extends JFrame {
     private JTextField textField5;
     private JButton CALCULATEButton;
     private JTextField textField6;
-    private JButton button1;
-    private JButton button2;
-    private JButton button3;
-    private JButton button4;
-    private JButton routineButton;
+    public JButton hometbn;
+    public JButton workoutbtn;
+    public JButton journalbtn;
+    public JButton profilebtn;
+    public JButton routineButton;
     private JComboBox comboBox2;
     private JTextField textField7;
 
     public StrengthPanel(){
-        setContentPane(mainPanel);
+        /*setContentPane(mainPanel);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setSize(402, 874);
-        setVisible(true);
+        setVisible(true);*/
 
     }
+    public JPanel getMainPanel() {
+        return mainPanel;
+    }
 
-    public static void main(String[] args) {
+    /*public static void main(String[] args) {
         new StrengthPanel();
-    }
+    }*/
 }

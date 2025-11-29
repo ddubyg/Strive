@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="LoginForm.Login">
-  <grid id="27dc6" binding="mainPanel" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
-    <margin top="20" left="30" bottom="20" right="30"/>
+  <grid id="27dc6" binding="mainPanel" layout-manager="GridLayoutManager" row-count="4" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+    <margin top="70" left="30" bottom="50" right="30"/>
     <constraints>
-      <xy x="20" y="20" width="509" height="622"/>
+      <xy x="20" y="20" width="552" height="940"/>
     </constraints>
     <properties>
       <background color="-16576740"/>
     </properties>
     <border type="none"/>
     <children>
-      <grid id="45f2d" binding="LoginPanel" layout-manager="GridLayoutManager" row-count="5" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
-        <margin top="0" left="0" bottom="0" right="0"/>
+      <grid id="45f2d" binding="LoginPanel" layout-manager="GridLayoutManager" row-count="6" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+        <margin top="10" left="15" bottom="10" right="15"/>
         <constraints>
-          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
-            <preferred-size width="150" height="650"/>
-            <maximum-size width="350" height="650"/>
+          <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
+            <preferred-size width="150" height="350"/>
+            <maximum-size width="350" height="350"/>
           </grid>
         </constraints>
         <properties>
@@ -23,49 +23,118 @@
         </properties>
         <border type="none"/>
         <children>
-          <component id="e8545" class="javax.swing.JLabel">
+          <component id="bc9bb" class="javax.swing.JButton" binding="LOGINButton" default-binding="true">
             <constraints>
-              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties>
-              <icon value="Images/striveLogo.png"/>
-              <text value="Strive"/>
-            </properties>
-          </component>
-          <component id="89bd1" class="javax.swing.JLabel">
-            <constraints>
-              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties>
-              <text value="Label"/>
-            </properties>
-          </component>
-          <component id="a1c0b" class="javax.swing.JTextField" binding="textField1" default-binding="true">
-            <constraints>
-              <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
-                <preferred-size width="150" height="-1"/>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="1" fill="1" indent="0" use-parent-layout="false">
+                <preferred-size width="200" height="40"/>
+                <maximum-size width="250" height="40"/>
               </grid>
             </constraints>
-            <properties/>
+            <properties>
+              <background color="-11563778"/>
+              <foreground color="-394241"/>
+              <text value="LOG IN"/>
+            </properties>
           </component>
-          <component id="c0802" class="javax.swing.JLabel">
+          <component id="c2b7c" class="javax.swing.JButton" binding="CREATEACCOUNTButton" default-binding="true">
+            <constraints>
+              <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="1" fill="1" indent="0" use-parent-layout="false">
+                <preferred-size width="200" height="40"/>
+                <maximum-size width="200" height="40"/>
+              </grid>
+            </constraints>
+            <properties>
+              <background color="-16576740"/>
+              <foreground color="-394241"/>
+              <text value="CREATE ACCOUNT"/>
+            </properties>
+          </component>
+          <component id="f6da3" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="1" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font size="12" style="1"/>
+              <foreground color="-394241"/>
+              <text value="USERNAME"/>
+            </properties>
+          </component>
+          <component id="a25a5" class="javax.swing.JTextField" binding="textField1" default-binding="true">
+            <constraints>
+              <grid row="2" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="9" fill="1" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="40"/>
+              </grid>
+            </constraints>
+            <properties>
+              <background color="-16576740"/>
+              <columns value="0"/>
+              <enabled value="true"/>
+              <foreground color="-394241"/>
+            </properties>
+          </component>
+          <component id="3faa7" class="javax.swing.JLabel">
             <constraints>
               <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <text value="Label"/>
+              <font size="12" style="1"/>
+              <foreground color="-394241"/>
+              <text value="PASSWORD"/>
             </properties>
           </component>
-          <component id="e7264" class="javax.swing.JPasswordField" binding="passwordField1" default-binding="true">
+          <component id="7164a" class="javax.swing.JPasswordField" binding="passwordField1" default-binding="true">
             <constraints>
-              <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
-                <preferred-size width="150" height="-1"/>
+              <grid row="4" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="9" fill="1" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="40"/>
               </grid>
             </constraints>
-            <properties/>
+            <properties>
+              <background color="-16576740"/>
+              <foreground color="-394241"/>
+            </properties>
+          </component>
+          <component id="90853" class="javax.swing.JButton" binding="ACCESSSTRIVEButton" default-binding="true">
+            <constraints>
+              <grid row="5" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="1" fill="1" indent="0" use-parent-layout="false">
+                <preferred-size width="-1" height="35"/>
+              </grid>
+            </constraints>
+            <properties>
+              <background color="-13999156"/>
+              <foreground color="-394241"/>
+              <text value="ACCESS STRIVE"/>
+            </properties>
           </component>
         </children>
       </grid>
+      <component id="e8545" class="javax.swing.JLabel">
+        <constraints>
+          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <icon value="Images/largeLogo.png"/>
+          <text value=""/>
+        </properties>
+      </component>
+      <component id="749e7" class="javax.swing.JLabel">
+        <constraints>
+          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="1" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <font name="JetBrains Mono SemiBold" size="26" style="3"/>
+          <foreground color="-394241"/>
+          <text value="STRIVE"/>
+        </properties>
+      </component>
+      <component id="a4f40" class="javax.swing.JLabel">
+        <constraints>
+          <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <foreground color="-394241"/>
+          <text value="FITNESS COMPANION"/>
+        </properties>
+      </component>
     </children>
   </grid>
 </form>

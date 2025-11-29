@@ -231,7 +231,7 @@
         </properties>
         <border type="none"/>
         <children>
-          <component id="fd77d" class="javax.swing.JButton" binding="button1" default-binding="true">
+          <component id="fd77d" class="javax.swing.JButton" binding="hometbn">
             <constraints>
               <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -246,7 +246,7 @@
               <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
             </constraints>
           </vspacer>
-          <component id="b9203" class="javax.swing.JButton" binding="button2" default-binding="true">
+          <component id="b9203" class="javax.swing.JButton" binding="workoutbtn">
             <constraints>
               <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -256,7 +256,7 @@
               <text value=""/>
             </properties>
           </component>
-          <component id="14b45" class="javax.swing.JButton" binding="button3" default-binding="true">
+          <component id="14b45" class="javax.swing.JButton" binding="journalbtn">
             <constraints>
               <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -266,7 +266,7 @@
               <text value=""/>
             </properties>
           </component>
-          <component id="37982" class="javax.swing.JButton" binding="button4" default-binding="true">
+          <component id="37982" class="javax.swing.JButton" binding="profilebtn">
             <constraints>
               <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>

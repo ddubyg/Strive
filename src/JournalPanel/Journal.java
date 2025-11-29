@@ -6,7 +6,7 @@ import java.awt.event.ActionListener;
 
 public class Journal extends JFrame{
 
-    private JPanel mainPanel;
+    public JPanel mainPanel;
     private JTextArea writeJournal;
     private JComboBox chooseBox;
     private JButton CLEARButton;
@@ -24,21 +24,25 @@ public class Journal extends JFrame{
     private JLabel fourthHistoryLabel;
     private JPanel lowerPanel;
     private JLabel titleLabel;
-    private JButton button1;
-    private JButton button2;
-    private JButton button3;
-    private JButton button4;
-    private JButton routineButton;
+    public JButton homebtn;
+    public JButton workoutbtn;
+    public JButton journalbtn;
+    public JButton profilebtn;
+    public JButton routineButton;
 
 
     public Journal(){
-        setContentPane(mainPanel);
+       /* setContentPane(mainPanel);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setSize(402,874);
-        setVisible(true);
+        setVisible(true);*/
+    }
+    public JPanel getMainPanel() {
+        return mainPanel;
     }
 
-    public void clear(){
+
+   /* public void clear(){
         CLEARButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -58,5 +62,5 @@ public class Journal extends JFrame{
 
     public static void main(String[] args) {
         new Journal();
-    }
+    }*/
 }

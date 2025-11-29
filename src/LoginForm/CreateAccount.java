@@ -1,0 +1,29 @@
+package LoginForm;
+
+import javax.swing.*;
+
+public class CreateAccount extends JFrame {
+    private JPanel mainPanel;
+    private JPanel createAccountPanel;
+    public JButton LOGINButton;
+    public JButton CREATEACCOUNTButton;
+    private JTextField userTextfield;
+    private JTextField displayNameTExtfield;
+    private JTextField passwordTextfield;
+    private JTextField ageTextField;
+    private JTextField heightTextField;
+    private JTextField weightTextfield;
+    public JButton CREATEPROFILEButton;
+    public JButton BACKTOLOGINButton;
+
+    public CreateAccount(){
+        /*setContentPane(mainPanel);
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setSize(402, 874);
+        setVisible(true);*/
+    }
+
+    public JPanel getMainPanel() {
+        return mainPanel;
+    }
+}

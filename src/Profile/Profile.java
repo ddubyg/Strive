@@ -4,12 +4,12 @@ import javax.swing.*;
 
 public class Profile extends JFrame {
 
-    private JPanel mainFrame;
-    private JButton button2;
-    private JButton button3;
-    private JButton button4;
-    private JButton button5;
-    private JButton routineButton;
+    public JPanel mainFrame;
+    public JButton homebtn;
+    public JButton workoutbtn;
+    public JButton journalbtn;
+    public JButton profilebtn;
+    public JButton routineButton;
     private JProgressBar progressBarWeight;
     private JButton EDITPROFILEButton;
     private JTextField ageTextField;
@@ -24,6 +24,7 @@ public class Profile extends JFrame {
     private JPanel lowerPanel;
     private JPanel editablePanel;
     private JLabel editableJlabelBmi;
+    public  JButton logoutButton;
     private JButton EDITButton;
     private JButton confirm_button;
     private JPanel profile_panel;
@@ -31,17 +32,20 @@ public class Profile extends JFrame {
     private JLabel title_Label;
 
     public Profile(){
-        setContentPane(mainFrame);
+     /*   setContentPane(mainFrame);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setSize(402,874);
-        setVisible(true);
-
+        setVisible(true);*/
+    }
+    public JPanel getMainPanel() {
+        return mainFrame;
     }
 
 
 
-    public static void main(String[] args) {
+
+    /*public static void main(String[] args) {
         new Profile();
-    }
+    }*/
 
 }
