@@ -57,14 +57,14 @@
               </component>
             </children>
           </grid>
-          <component id="cbe61" class="javax.swing.JLabel">
+          <component id="cbe61" class="javax.swing.JLabel" binding="welcome">
             <constraints>
               <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <font name="Arial Rounded MT Bold" size="14"/>
+              <font name="Arial Rounded MT Bold" size="18"/>
               <foreground color="-394241"/>
-              <text value="Edit lang sa code"/>
+              <text value=""/>
             </properties>
           </component>
           <component id="1541" class="javax.swing.JLabel">

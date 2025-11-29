@@ -8,7 +8,8 @@ import Workout.StrengthPanel;
 import LoginForm.Login;
 import  LoginForm.CreateAccount;
 
-                                                                                                                                                                                                                                                                                                                                                                                                                    import javax.swing.*;
+
+import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -17,8 +18,8 @@ public class PageManager extends JFrame {
     CardLayout layout = new CardLayout();
     JPanel container = new JPanel(layout);
 
-    Login login = new Login();
-    CreateAccount createAccount = new CreateAccount();
+    Login login = new Login(this);
+    CreateAccount createAccount = new CreateAccount(this);
     HomePage home = new HomePage();
     Journal journal = new Journal();
     Profile profile = new Profile();
@@ -52,14 +53,21 @@ public class PageManager extends JFrame {
     private void hookNavigation() {
 
         login.CREATEACCOUNTButton.addActionListener(e -> layout.show(container, "createAccount"));
-        createAccount.LOGINButton   .addActionListener(e -> layout.show(container, "login"));
+        createAccount.LOGINButton   .addActionListener(e ->{
+            home.setWelcome();
+            layout.show(container, "login");
+        });
         // --- GENERAL NAVIGATION (Home, Journal, Profile, Workout) ---
         login.ACCESSSTRIVEButton.addActionListener(e -> {
-            layout.show(container, "home");
+//            layout.show(container, "home");
+            home.setWelcome();
         });
         // HOME PAGE buttons
         home.journal.addActionListener(e -> layout.show(container, "journal"));
-        home.profile.addActionListener(e -> layout.show(container, "profile"));
+        home.profile.addActionListener(e -> {
+            profile.setProfilename();
+            layout.show(container, "profile");
+        });
         home.home.addActionListener(e -> layout.show(container, "home"));
         home.workout.addActionListener(e -> layout.show(container, "strength"));
 
@@ -90,6 +98,12 @@ public class PageManager extends JFrame {
         cardio.workoutBtn.addActionListener(e -> layout.show(container, "strength"));
         cardio.journalBtn.addActionListener(e -> layout.show(container, "journal"));
         cardio.profilebtn.addActionListener(e -> layout.show(container, "profile"));
+    }
+    //helper
+    public void showPage(String name) {
+
+        layout.show(container, name);
+
     }
 
     public static void main(String[] args) {

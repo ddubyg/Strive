@@ -1,5 +1,7 @@
 package Profile;
 
+import LoginForm.UserStore;
+
 import javax.swing.*;
 
 public class Profile extends JFrame {
@@ -32,6 +34,15 @@ public class Profile extends JFrame {
     private JLabel title_Label;
 
     public Profile(){
+
+    }
+    public void setProfilename(){
+
+        userNameLabel.setText(UserStore.displayName);
+        ageTextField.setText(UserStore.age);
+        heightTextField.setText(UserStore.height);
+        weightProfileTextField.setText(UserStore.weight);
+
 
     }
     public JPanel getMainPanel() {
