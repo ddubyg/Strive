@@ -52,7 +52,7 @@ public class PageManager extends JFrame {
     private void hookNavigation() {
 
         login.CREATEACCOUNTButton.addActionListener(e -> layout.show(container, "createAccount"));
-        createAccount.LOGINButton.addActionListener(e -> layout.show(container, "login"));
+        createAccount.LOGINButton   .addActionListener(e -> layout.show(container, "login"));
         // --- GENERAL NAVIGATION (Home, Journal, Profile, Workout) ---
         login.ACCESSSTRIVEButton.addActionListener(e -> {
             layout.show(container, "home");
@@ -93,6 +93,7 @@ public class PageManager extends JFrame {
     }
 
     public static void main(String[] args) {
+
         new PageManager();
     }
 }
