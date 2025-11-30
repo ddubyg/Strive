@@ -1,6 +1,7 @@
 package Profile;
 
 import LoginForm.UserStore;
+import Profile.backend.userProfile;
 
 import javax.swing.*;
 
@@ -42,7 +43,7 @@ public class Profile extends JFrame {
         ageTextField.setText(UserStore.age);
         heightTextField.setText(UserStore.height);
         weightProfileTextField.setText(UserStore.weight);
-
+        editableJlabelBmi.setText(userProfile.getBMI());
 
     }
     public JPanel getMainPanel() {
