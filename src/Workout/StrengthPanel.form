@@ -164,7 +164,11 @@
             <properties>
               <background color="-16576740"/>
               <foreground color="-394241"/>
-              <model/>
+              <model>
+                <item value="Pull"/>
+                <item value="Push"/>
+                <item value="Lower"/>
+              </model>
             </properties>
           </component>
           <component id="ff819" class="javax.swing.JTextField" binding="textField7" default-binding="true">

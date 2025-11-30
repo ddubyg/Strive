@@ -63,6 +63,7 @@
             <properties>
               <background color="-16576740"/>
               <foreground color="-394241"/>
+              <lineWrap value="true"/>
               <text value=""/>
             </properties>
           </component>
