@@ -21,7 +21,7 @@ public class HomePage extends JFrame {
     private JCheckBox fridayCheckBox;
     private JCheckBox saturdayCheckBox;
     private JCheckBox sundayCheckBox;
-    private JButton BROWSEWORKOUTButton;
+    private JButton CALCULATECALORIESButton;
     private JButton STARTButton;
     public JButton home;
     public JButton workout;
