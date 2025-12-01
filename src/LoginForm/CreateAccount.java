@@ -4,6 +4,7 @@ import Main.PageManager;
 
 import javax.swing.*;
 import java.awt.event.ActionListener;
+import java.lang.IllegalArgumentException;
 
 public class CreateAccount {
     private PageManager manager;
@@ -24,43 +25,65 @@ public class CreateAccount {
         setProfile();
     }
 
-    // This method is responsible for handling the profile creation process
+    // handling invalid inputs
     public void setProfile() {
         CREATEPROFILEButton.addActionListener(e -> {
             try {
-                // Validate and parse age as integer
-                int age = Integer.parseInt(ageTextField.getText());
+                // validate age
+                int age;
+                try {
+                    age = Integer.parseInt(ageTextField.getText());
+                } catch (NumberFormatException nfe) {
+                    throw new NumberFormatException("Age must be a valid whole number.");
+                }
+
                 if (age <= 0) {
                     throw new NumberFormatException("Age must be a positive integer.");
                 }
                 UserStore.age = String.valueOf(age);
 
-                // Validate and parse height as double
-                double height = Double.parseDouble(heightTextField.getText());
+                // validate height
+                double height;
+                try {
+                    height = Double.parseDouble(heightTextField.getText());
+                } catch (NumberFormatException nfe) {
+                    throw new NumberFormatException("Height must be a valid number.");
+                }
+
                 if (height <= 0) {
                     throw new NumberFormatException("Height must be a positive number.");
                 }
                 UserStore.height = String.valueOf(height);
 
-                // Validate and parse weight as double
-                double weight = Double.parseDouble(weightTextfield.getText());
+                // validate weight
+                double weight;
+                try {
+                    weight = Double.parseDouble(weightTextfield.getText());
+                } catch (NumberFormatException nfe) {
+                    throw new NumberFormatException("Weight must be a valid number.");
+                }
+
                 if (weight <= 0) {
                     throw new NumberFormatException("Weight must be a positive number.");
                 }
                 UserStore.weight = String.valueOf(weight);
 
-                // Store other user data
+                // store data
+                // check if empty
+                if (userTextfield.getText().isEmpty() || passwordTextfield.getText().isEmpty()) {
+                    throw new IllegalArgumentException("Username and Password cannot be empty.");
+                }
+
                 UserStore.username = userTextfield.getText();
                 UserStore.password = passwordTextfield.getText();
                 UserStore.displayName = displayNameTExtfield.getText().toUpperCase();
 
-
                 UserStore.createProfile();
 
-                // Show success message
+                // success message
                 JOptionPane.showMessageDialog(null, "Account created!");
 
-                // Clear the input fields
+                // clear fields
                 userTextfield.setText("");
                 passwordTextfield.setText("");
                 displayNameTExtfield.setText("");
@@ -68,12 +91,11 @@ public class CreateAccount {
                 heightTextField.setText("");
                 weightTextfield.setText("");
 
-                // Navigate to login page
+                // nav to login
                 manager.showPage("login");
 
-            } catch (NumberFormatException ex) {
-                // Show error message in case of invalid input
-                JOptionPane.showMessageDialog(null, "Invalid input: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            } catch (IllegalArgumentException ex) {
+                JOptionPane.showMessageDialog(null, ex.getMessage(), "Input Error", JOptionPane.ERROR_MESSAGE);
             }
         });
     }
