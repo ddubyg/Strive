@@ -31,6 +31,14 @@ public class HomePage extends JFrame {
     private JLabel welcome;
     private JLabel streakLabel;
     private JLabel displayCaloriesJlabel;
+    private JPanel calculatePanel;
+    private JTextField ageTxtField;
+    private JRadioButton MALERadioButton;
+    private JRadioButton FEMALERadioButton;
+    private JTextField heightTxtfield;
+    private JTextField textField1;
+    private JTextField activityTxtField;
+    private JButton CALCULATEButton;
     private int weeklyStreak = 0;
     private boolean hasCountedThisWeek = false;
     private int lastWeekNumber = -1;

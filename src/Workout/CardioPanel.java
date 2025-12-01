@@ -12,14 +12,7 @@ public class CardioPanel extends JFrame {
     private JTextField textField1;
     private JTextField textField2;
     private JSpinner spinner1;
-    private JTextField textField3;
-    private JRadioButton MALERadioButton;
-    private JRadioButton FEMALERadioButton;
     private JPanel lowerPanel;
-    private JTextField textField4;
-    private JTextField textField5;
-    private JTextField textField6;
-    private JButton CALCULATEButton;
     public JButton HOMEButton;
     public JButton workoutBtn;
     public JButton journalBtn;

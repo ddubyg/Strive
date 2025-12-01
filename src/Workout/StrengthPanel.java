@@ -15,14 +15,7 @@ public class StrengthPanel extends JFrame {
     private JTextField textField2;
     private JPanel durationPanel;
     private JSpinner spinner1;
-    private JTextField textField3;
-    private JRadioButton maleRadioButton;
-    private JRadioButton femaleRadioButton;
     private JPanel belowPanel;
-    private JTextField textField4;
-    private JTextField textField5;
-    private JButton CALCULATEButton;
-    private JTextField textField6;
     public JButton hometbn;
     public JButton workoutbtn;
     public JButton journalbtn;
