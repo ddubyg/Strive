@@ -50,7 +50,7 @@ public class HomePage extends JFrame {
     //setting welcome
     public void setWelcome(){
 
-        welcome.setText("WELCOME HOME " + UserStore.displayName + "!!!");
+        welcome.setText("Welcome back, " + UserStore.displayName + "!");
     }
 
     public JPanel getMainPanel() {
