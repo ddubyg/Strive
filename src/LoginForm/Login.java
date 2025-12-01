@@ -24,18 +24,28 @@ public class Login extends JFrame{
         ACCESSSTRIVEButton.addActionListener(e ->{
             String user = textField1.getText();
             String pass = new String(passwordField1.getPassword());
-            if (UserStore.username == null) {
-                //No account found. Please create one first.
-               JOptionPane.showMessageDialog(this, "No account found. Please create one first.");
+
+            // 1. Basic empty check
+            if (user.isEmpty() || pass.isEmpty()) {
+                JOptionPane.showMessageDialog(this, "Please enter username and password.");
                 return;
             }
-            if (user.equals(UserStore.username) && pass.equals(UserStore.password)) {
-                //JOptionPane.showMessageDialog(this, "Login successful!");
-                manager.showPage("home");
-            } else {
-                JOptionPane.showMessageDialog(this, "Incorrect username or password.");
-            }
 
+            // 2. CALL THE FILE CHECKER
+            boolean loginSuccess = UserStore.authenticate(user, pass);
+
+            if (loginSuccess) {
+                // Login Successful
+                // JOptionPane.showMessageDialog(this, "Login successful!");
+                manager.showPage("home");
+
+                // Clear fields (optional)
+                textField1.setText("");
+                passwordField1.setText("");
+            } else {
+                // Login Failed
+                JOptionPane.showMessageDialog(this, "Incorrect username or password, or account does not exist.");
+            }
         });
     }
 

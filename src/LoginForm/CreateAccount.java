@@ -54,6 +54,9 @@ public class CreateAccount {
                 UserStore.password = passwordTextfield.getText();
                 UserStore.displayName = displayNameTExtfield.getText().toUpperCase();
 
+
+                UserStore.createProfile();
+
                 // Show success message
                 JOptionPane.showMessageDialog(null, "Account created!");
 
