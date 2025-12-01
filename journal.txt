@@ -1,0 +1,4 @@
+2025-12-01 16:52 | GOD | qweqweqwe
+2025-12-01T16:52:50.483236| GOOD | asdsadasdadasdsadsadasd
+2025-12-01T16:53:00.274860400 | BAD | qweqewqewqe
+2025-12-01T16:56:49.260097600 | GOOD | asdsadsadsadsad
