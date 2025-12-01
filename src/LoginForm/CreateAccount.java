@@ -81,7 +81,7 @@ public class CreateAccount {
                 UserStore.createProfile();
 
                 // success message
-                JOptionPane.showMessageDialog(null, "Account created!");
+                JOptionPane.showMessageDialog(manager, "Account created!");
 
                 // clear fields
                 userTextfield.setText("");
@@ -95,7 +95,7 @@ public class CreateAccount {
                 manager.showPage("login");
 
             } catch (IllegalArgumentException ex) {
-                JOptionPane.showMessageDialog(null, ex.getMessage(), "Input Error", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(manager, ex.getMessage(), "Input Error", JOptionPane.ERROR_MESSAGE);
             }
         });
     }
