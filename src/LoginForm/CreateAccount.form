@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="LoginForm.CreateAccount">
   <grid id="27dc6" binding="mainPanel" layout-manager="GridLayoutManager" row-count="5" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
-    <margin top="70" left="30" bottom="50" right="30"/>
+    <margin top="70" left="25" bottom="50" right="40"/>
     <constraints>
-      <xy x="20" y="20" width="411" height="970"/>
+      <xy x="20" y="20" width="547" height="809"/>
     </constraints>
     <properties>
       <background color="-16576740"/>
@@ -68,17 +68,6 @@
           <component id="f5b33" class="javax.swing.JTextField" binding="userTextfield">
             <constraints>
               <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="9" fill="1" indent="0" use-parent-layout="false">
-                <preferred-size width="150" height="30"/>
-              </grid>
-            </constraints>
-            <properties>
-              <background color="-16576740"/>
-              <foreground color="-394241"/>
-            </properties>
-          </component>
-          <component id="63be7" class="javax.swing.JTextField" binding="displayNameTExtfield">
-            <constraints>
-              <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="9" fill="1" indent="0" use-parent-layout="false">
                 <preferred-size width="150" height="30"/>
               </grid>
             </constraints>
@@ -182,7 +171,18 @@
             <properties>
               <background color="-11563778"/>
               <foreground color="-394241"/>
-              <text value="CREATE PROFILE"/>
+              <text value="CREATE ACCOUNT"/>
+            </properties>
+          </component>
+          <component id="63be7" class="javax.swing.JTextField" binding="displayNameTExtfield">
+            <constraints>
+              <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="9" fill="1" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="30"/>
+              </grid>
+            </constraints>
+            <properties>
+              <background color="-16576740"/>
+              <foreground color="-394241"/>
             </properties>
           </component>
         </children>
@@ -192,15 +192,6 @@
           <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value=""/>
-        </properties>
-      </component>
-      <component id="68b0b" class="javax.swing.JLabel">
-        <constraints>
-          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <icon value="Images/largeLogo.png"/>
           <text value=""/>
         </properties>
       </component>
@@ -221,6 +212,15 @@
         <properties>
           <foreground color="-394241"/>
           <text value="FITNESS COMPANION"/>
+        </properties>
+      </component>
+      <component id="68b0b" class="javax.swing.JLabel">
+        <constraints>
+          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <icon value="Images/largeLogo.png"/>
+          <text value=""/>
         </properties>
       </component>
     </children>

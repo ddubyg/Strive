@@ -38,7 +38,7 @@
             <children>
               <component id="b6d49" class="javax.swing.JLabel" binding="streakLabel">
                 <constraints>
-                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="2" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
                   <font name="Arial Black" size="22"/>
@@ -48,12 +48,12 @@
               </component>
               <component id="2b235" class="javax.swing.JLabel">
                 <constraints>
-                  <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                  <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="1" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
                   <font name="Arial Black" size="18"/>
                   <foreground color="-394241"/>
-                  <text value="Weakly Streak"/>
+                  <text value="Weekly Streak"/>
                 </properties>
               </component>
             </children>
@@ -80,8 +80,8 @@
           </component>
         </children>
       </grid>
-      <grid id="15a3b" layout-manager="GridLayoutManager" row-count="2" column-count="4" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
-        <margin top="5" left="5" bottom="5" right="5"/>
+      <grid id="15a3b" binding="calculatePanel" layout-manager="GridLayoutManager" row-count="4" column-count="5" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+        <margin top="10" left="10" bottom="10" right="10"/>
         <constraints>
           <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="120"/>
@@ -93,173 +93,128 @@
         </properties>
         <border type="none"/>
         <children>
-          <grid id="f5fb9" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
-            <margin top="0" left="0" bottom="0" right="0"/>
+          <component id="9ff31" class="javax.swing.JLabel">
             <constraints>
-              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
-                <preferred-size width="150" height="50"/>
-                <maximum-size width="150" height="50"/>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <foreground color="-1"/>
+              <text value="AGE"/>
+            </properties>
+          </component>
+          <component id="94b76" class="javax.swing.JTextField" binding="ageTxtField">
+            <constraints>
+              <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                <preferred-size width="100" height="25"/>
+                <maximum-size width="100" height="30"/>
               </grid>
             </constraints>
             <properties>
               <background color="-16576740"/>
+              <foreground color="-1"/>
             </properties>
-            <border type="none"/>
-            <children>
-              <component id="c7994" class="javax.swing.JCheckBox" binding="mondayCheckBox" default-binding="true">
-                <constraints>
-                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
-                </constraints>
-                <properties>
-                  <background color="-16576740"/>
-                  <foreground color="-394241"/>
-                  <text value="Monday"/>
-                </properties>
-              </component>
-            </children>
-          </grid>
-          <grid id="a449e" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
-            <margin top="0" left="0" bottom="0" right="0"/>
+          </component>
+          <component id="fa044" class="javax.swing.JLabel">
             <constraints>
-              <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
-                <maximum-size width="150" height="50"/>
+              <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <foreground color="-1"/>
+              <text value="GENDER"/>
+            </properties>
+          </component>
+          <component id="d00e1" class="javax.swing.JRadioButton" binding="MALERadioButton" default-binding="true">
+            <constraints>
+              <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-16108447"/>
+              <foreground color="-1"/>
+              <text value="MALE"/>
+            </properties>
+          </component>
+          <component id="9e04d" class="javax.swing.JRadioButton" binding="FEMALERadioButton" default-binding="true">
+            <constraints>
+              <grid row="0" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-16108447"/>
+              <foreground color="-1"/>
+              <text value="FEMALE"/>
+            </properties>
+          </component>
+          <component id="b7d6a" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <foreground color="-1"/>
+              <text value="HEIGHT"/>
+            </properties>
+          </component>
+          <component id="fb7b6" class="javax.swing.JTextField" binding="heightTxtfield">
+            <constraints>
+              <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                <preferred-size width="100" height="25"/>
+                <maximum-size width="100" height="30"/>
               </grid>
             </constraints>
             <properties>
               <background color="-16576740"/>
+              <foreground color="-1"/>
             </properties>
-            <border type="none"/>
-            <children>
-              <component id="dc7a3" class="javax.swing.JCheckBox" binding="tuesdayCheckBox" default-binding="true">
-                <constraints>
-                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
-                </constraints>
-                <properties>
-                  <background color="-16576740"/>
-                  <foreground color="-394241"/>
-                  <text value="Tuesday"/>
-                </properties>
-              </component>
-            </children>
-          </grid>
-          <grid id="aea6f" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
-            <margin top="0" left="0" bottom="0" right="0"/>
+          </component>
+          <component id="7f866" class="javax.swing.JLabel">
             <constraints>
-              <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
-                <maximum-size width="150" height="50"/>
+              <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <foreground color="-1"/>
+              <text value="WEIGHT"/>
+            </properties>
+          </component>
+          <component id="92697" class="javax.swing.JTextField" binding="textField1" default-binding="true">
+            <constraints>
+              <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                <preferred-size width="100" height="25"/>
+                <maximum-size width="100" height="30"/>
               </grid>
             </constraints>
             <properties>
               <background color="-16576740"/>
+              <foreground color="-1"/>
             </properties>
-            <border type="none"/>
-            <children>
-              <component id="d4586" class="javax.swing.JCheckBox" binding="wednesdayCheckBox" default-binding="true">
-                <constraints>
-                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
-                </constraints>
-                <properties>
-                  <background color="-16576740"/>
-                  <foreground color="-394241"/>
-                  <text value="Wednesday"/>
-                </properties>
-              </component>
-            </children>
-          </grid>
-          <grid id="8ce7b" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
-            <margin top="0" left="0" bottom="0" right="0"/>
+          </component>
+          <component id="43724" class="javax.swing.JTextField" binding="activityTxtField">
             <constraints>
-              <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
-                <maximum-size width="150" height="50"/>
+              <grid row="2" column="2" row-span="1" col-span="3" vsize-policy="0" hsize-policy="6" anchor="0" fill="0" indent="0" use-parent-layout="false">
+                <preferred-size width="140" height="25"/>
+                <maximum-size width="140" height="30"/>
               </grid>
             </constraints>
             <properties>
               <background color="-16576740"/>
+              <foreground color="-1"/>
             </properties>
-            <border type="none"/>
-            <children>
-              <component id="c8bab" class="javax.swing.JCheckBox" binding="thursdayCheckBox" default-binding="true">
-                <constraints>
-                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-                </constraints>
-                <properties>
-                  <background color="-16576740"/>
-                  <foreground color="-394241"/>
-                  <text value="Thursday"/>
-                </properties>
-              </component>
-            </children>
-          </grid>
-          <grid id="ebb52" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
-            <margin top="0" left="0" bottom="0" right="0"/>
+          </component>
+          <component id="de6d6" class="javax.swing.JLabel">
             <constraints>
-              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
-                <maximum-size width="150" height="50"/>
-              </grid>
+              <grid row="1" column="2" row-span="1" col-span="3" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <background color="-16576740"/>
+              <foreground color="-1"/>
+              <text value="ACTIVITY TYPE"/>
             </properties>
-            <border type="none"/>
-            <children>
-              <component id="9ce7" class="javax.swing.JCheckBox" binding="fridayCheckBox" default-binding="true">
-                <constraints>
-                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
-                </constraints>
-                <properties>
-                  <background color="-16576740"/>
-                  <foreground color="-394241"/>
-                  <text value="Friday"/>
-                </properties>
-              </component>
-            </children>
-          </grid>
-          <grid id="27ded" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
-            <margin top="0" left="0" bottom="0" right="0"/>
+          </component>
+          <component id="87fd1" class="javax.swing.JButton" binding="CALCULATEButton" default-binding="true">
             <constraints>
-              <grid row="1" column="3" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
-                <maximum-size width="150" height="50"/>
-              </grid>
+              <grid row="3" column="1" row-span="1" col-span="3" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <background color="-16576740"/>
+              <background color="-11563778"/>
+              <text value="CALCULATE"/>
             </properties>
-            <border type="none"/>
-            <children>
-              <component id="66fae" class="javax.swing.JCheckBox" binding="sundayCheckBox" default-binding="true">
-                <constraints>
-                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-                </constraints>
-                <properties>
-                  <background color="-16576740"/>
-                  <foreground color="-394241"/>
-                  <text value="Sunday"/>
-                </properties>
-              </component>
-            </children>
-          </grid>
-          <grid id="d4b0c" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
-            <margin top="0" left="0" bottom="0" right="0"/>
-            <constraints>
-              <grid row="1" column="1" row-span="1" col-span="2" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties>
-              <background color="-16576740"/>
-            </properties>
-            <border type="none"/>
-            <children>
-              <component id="3885d" class="javax.swing.JCheckBox" binding="saturdayCheckBox" default-binding="true">
-                <constraints>
-                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
-                </constraints>
-                <properties>
-                  <background color="-16576740"/>
-                  <foreground color="-394241"/>
-                  <text value="Saturday"/>
-                </properties>
-              </component>
-            </children>
-          </grid>
+          </component>
         </children>
       </grid>
       <grid id="9df04" layout-manager="GridLayoutManager" row-count="2" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
@@ -275,14 +230,14 @@
         </properties>
         <border type="none"/>
         <children>
-          <component id="fdfa4" class="javax.swing.JButton" binding="BROWSEWORKOUTButton" default-binding="true">
+          <component id="fdfa4" class="javax.swing.JButton" binding="CALCULATECALORIESButton" default-binding="true">
             <constraints>
               <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <background color="-16108447"/>
               <foreground color="-394241"/>
-              <text value="BROWSE WORKOUT"/>
+              <text value="CALCULATE CALORIES"/>
             </properties>
           </component>
           <component id="c1a72" class="javax.swing.JButton" binding="STARTButton" default-binding="true">
@@ -292,7 +247,7 @@
             <properties>
               <background color="-11563778"/>
               <foreground color="-394241"/>
-              <text value="ADD STREAK"/>
+              <text value="START"/>
             </properties>
           </component>
           <grid id="b738e" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">

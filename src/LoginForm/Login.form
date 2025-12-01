@@ -107,15 +107,6 @@
           </component>
         </children>
       </grid>
-      <component id="e8545" class="javax.swing.JLabel">
-        <constraints>
-          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <icon value="Images/largeLogo.png"/>
-          <text value=""/>
-        </properties>
-      </component>
       <component id="749e7" class="javax.swing.JLabel">
         <constraints>
           <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="1" fill="0" indent="0" use-parent-layout="false"/>
@@ -133,6 +124,15 @@
         <properties>
           <foreground color="-394241"/>
           <text value="FITNESS COMPANION"/>
+        </properties>
+      </component>
+      <component id="e8545" class="javax.swing.JLabel">
+        <constraints>
+          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <icon value="Images/largeLogo.png"/>
+          <text value=""/>
         </properties>
       </component>
     </children>
