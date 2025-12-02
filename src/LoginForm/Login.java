@@ -22,8 +22,8 @@ public class Login extends JFrame{
     //log in code
     public void setACCESSSTRIVEButton(){
         ACCESSSTRIVEButton.addActionListener(e ->{
-            String user = textField1.getText();
-            String pass = new String(passwordField1.getPassword());
+            String user = textField1.getText(); // catches user inputted username
+            String pass = new String(passwordField1.getPassword()); // same as String pass, same functionality
 
             // 1. Basic empty check
             if (user.isEmpty() || pass.isEmpty()) {
@@ -33,13 +33,13 @@ public class Login extends JFrame{
 
             // 2. CALL THE FILE CHECKER
             boolean loginSuccess = UserStore.authenticate(user, pass);
-
+            //authenticator catches user and pass then passes to UserStore
             if (loginSuccess) {
                 // Login Successful
                 // JOptionPane.showMessageDialog(this, "Login successful!");
                 manager.showPage("home");
 
-                // Clear fields (optional)
+                // sets fields to blank
                 textField1.setText("");
                 passwordField1.setText("");
             } else {

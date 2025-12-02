@@ -12,6 +12,8 @@ public class UserStore {
 
     // NOT SURE, NEEDS RECHECKING
     public UserStore(){
+
+        //useless???
         if(age == null || age.equals("0")){
             throw new IllegalArgumentException("Age cannot be negative.");
         }
@@ -91,10 +93,12 @@ public class UserStore {
         }
     }
 
+    //authenthicator yipeee
     public static boolean authenticate(String inputUser, String inputPass) {
         // 1. Construct the path to the specific user's file
         String rootPath = System.getProperty("user.dir");
         File userFile = new File(rootPath, "userData/" + inputUser + "/user_data.csv");
+        //tracks location through username Inputted by the user
 
         // 2. Check if the user exists
         if (!userFile.exists()) {
