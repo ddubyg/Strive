@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="Routine.RoutineForm">
+  <grid id="27dc6" binding="mainPanel" layout-manager="GridLayoutManager" row-count="5" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+    <margin top="0" left="0" bottom="0" right="0"/>
+    <constraints>
+      <xy x="20" y="20" width="555" height="942"/>
+    </constraints>
+    <properties>
+      <background color="-16576740"/>
+    </properties>
+    <border type="none"/>
+    <children>
+      <grid id="771fe" binding="headerPanel" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+        <margin top="10" left="10" bottom="10" right="10"/>
+        <constraints>
+          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
+            <preferred-size width="150" height="50"/>
+            <maximum-size width="390" height="-1"/>
+          </grid>
+        </constraints>
+        <properties>
+          <background color="-16108447"/>
+        </properties>
+        <border type="none"/>
+        <children>
+          <component id="846d9" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font name="JetBrains Mono SemiBold" size="24" style="3"/>
+              <foreground color="-394241"/>
+              <icon value="Images/striveLogo.png"/>
+              <text value="Strive"/>
+            </properties>
+          </component>
+        </children>
+      </grid>
+      <grid id="d987c" binding="routinePanel" layout-manager="GridLayoutManager" row-count="4" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+        <margin top="5" left="5" bottom="5" right="5"/>
+        <constraints>
+          <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
+            <preferred-size width="150" height="600"/>
+            <maximum-size width="370" height="-1"/>
+          </grid>
+        </constraints>
+        <properties>
+          <background color="-16108447"/>
+        </properties>
+        <border type="none"/>
+        <children>
+          <grid id="cfdc6" binding="putRoutinePanel" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+            <margin top="0" left="0" bottom="0" right="0"/>
+            <constraints>
+              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="300"/>
+                <maximum-size width="340" height="530"/>
+              </grid>
+            </constraints>
+            <properties>
+              <background color="-16576740"/>
+            </properties>
+            <border type="none"/>
+            <children/>
+          </grid>
+          <component id="b2a7b" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font size="18"/>
+              <foreground color="-394241"/>
+              <text value="Today's Routine"/>
+            </properties>
+          </component>
+          <component id="c253" class="javax.swing.JButton" binding="startWorkoutButton" default-binding="true">
+            <constraints>
+              <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-11563778"/>
+              <foreground color="-394241"/>
+              <text value="Start Workout"/>
+            </properties>
+          </component>
+          <component id="237cf" class="javax.swing.JButton" binding="GOTOCARDIOButton" default-binding="true">
+            <constraints>
+              <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-11563778"/>
+              <foreground color="-394241"/>
+              <text value="GO TO CARDIO?"/>
+            </properties>
+          </component>
+        </children>
+      </grid>
+      <grid id="50a1f" binding="lowerPanel" layout-manager="GridLayoutManager" row-count="2" column-count="4" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+        <margin top="4" left="10" bottom="4" right="10"/>
+        <constraints>
+          <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
+            <preferred-size width="-1" height="50"/>
+            <maximum-size width="390" height="-1"/>
+          </grid>
+        </constraints>
+        <properties>
+          <background color="-16108447"/>
+        </properties>
+        <border type="none"/>
+        <children>
+          <component id="1c339" class="javax.swing.JButton" binding="homeBtn">
+            <constraints>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-16108447"/>
+              <icon value="Images/h.png"/>
+              <text value=""/>
+            </properties>
+          </component>
+          <component id="524fa" class="javax.swing.JButton" binding="workoutBtn">
+            <constraints>
+              <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-16108447"/>
+              <icon value="Images/w.png"/>
+              <text value=""/>
+            </properties>
+          </component>
+          <component id="99385" class="javax.swing.JButton" binding="routineButton" default-binding="true">
+            <constraints>
+              <grid row="1" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-16108447"/>
+              <foreground color="-394241"/>
+              <icon value="Images/g.png"/>
+              <text value="Routine"/>
+            </properties>
+          </component>
+          <component id="aea78" class="javax.swing.JButton" binding="journalBtn">
+            <constraints>
+              <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-16108447"/>
+              <icon value="Images/j.png"/>
+              <text value=""/>
+            </properties>
+          </component>
+          <component id="b0b5f" class="javax.swing.JButton" binding="profileBtn">
+            <constraints>
+              <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-16108447"/>
+              <icon value="Images/p.png"/>
+              <text value=""/>
+            </properties>
+          </component>
+        </children>
+      </grid>
+      <component id="568ad" class="javax.swing.JLabel">
+        <constraints>
+          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value=""/>
+        </properties>
+      </component>
+      <component id="90aa2" class="javax.swing.JLabel">
+        <constraints>
+          <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value=""/>
+        </properties>
+      </component>
+    </children>
+  </grid>
+</form>
