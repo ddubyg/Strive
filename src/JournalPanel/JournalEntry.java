@@ -7,7 +7,7 @@ public class JournalEntry {
 
     public JournalEntry(String mood, String text, String timestamp){
         this.mood = mood;
-        this.text = text;
+        this.text = text.replace("|", "-"); // testing: preventing formatting errors
         this.timestamp = timestamp;
 
     }
