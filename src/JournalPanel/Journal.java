@@ -1,183 +1,203 @@
 package JournalPanel;
 
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
-import java.time.*;
 
-
-public class Journal extends JFrame{
+public class Journal extends JFrame {
 
     public JPanel mainPanel;
     private JTextArea writeJournal;
-    private JComboBox chooseBox;
+    private JComboBox<String> chooseBox;
     private JButton CLEARButton;
     private JButton SAVEButton;
     private JPanel addJournalPanel;
     private JButton removeSelectedButton;
+
+    // History Panels
     private JPanel firstHIstory;
     private JPanel secondHistory;
     private JPanel thirdHistory;
     private JPanel fouthHistory;
+
+
     private JPanel titlePanel;
-    private JLabel firstHistoryLabel;
-    private JLabel secondHistoryLabel;
-    private JLabel thirdHistoryLabel;
-    private JLabel fourthHistoryLabel;
     private JPanel lowerPanel;
     private JLabel titleLabel;
+
+    // Public buttons for PageManager
     public JButton homebtn;
     public JButton workoutbtn;
     public JButton journalbtn;
     public JButton profilebtn;
     public JButton routineButton;
 
-
     private int selectedIndex = -1;
 
-    public Journal(){
-    loadHistoryIntoLabels();
-    setCLEARButton();
-    setSAVEButton();
-    setRemoveSelectedButton();
+    public Journal() {
+        initComponentsSafely(); // Prevent NullPointer crash
 
-        setHistorySelection();
+        // 1. Load Data
+        loadHistoryIntoPanels();
+
+        // 2. Setup Buttons
+        setCLEARButton();
+        setSAVEButton();
+        setRemoveSelectedButton();
+
+        // 3. Setup Selection Logic on the PANELS
+        setPanelSelectionListeners();
         highlightSelected();
     }
 
+    // --- SAFETY CHECK ---
+    private void initComponentsSafely() {
+        if (mainPanel == null) mainPanel = new JPanel();
 
+        // Initialize Panels if they are null (GUI Builder failed)
+        if (firstHIstory == null) firstHIstory = new JPanel();
+        if (secondHistory == null) secondHistory = new JPanel();
+        if (thirdHistory == null) thirdHistory = new JPanel();
+        if (fouthHistory == null) fouthHistory = new JPanel();
 
-    // setHistorySelection Still needs more work
-    // adds listener to each entry labels for deletion purposes
-    // calls the highliughtSelected function in order to show user
-    // then passes to deleter
-    // deleter is at journalFileManager line 52
-    private void setHistorySelection() {
-
-        firstHistoryLabel.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                selectedIndex = 0;
-                highlightSelected();
-            }
-        });
-
-        secondHistoryLabel.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                selectedIndex = 1;
-                highlightSelected();
-            }
-        });
-
-        thirdHistoryLabel.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                selectedIndex = 2;
-                highlightSelected();
-            }
-        });
-
-        fourthHistoryLabel.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                selectedIndex = 3;
-                highlightSelected();
-            }
-        });
+        if (writeJournal == null) writeJournal = new JTextArea();
+        if (chooseBox == null) chooseBox = new JComboBox<>();
+        if (SAVEButton == null) SAVEButton = new JButton("Save");
+        if (CLEARButton == null) CLEARButton = new JButton("Clear");
+        if (removeSelectedButton == null) removeSelectedButton = new JButton("Remove");
     }
 
-    //this still needs improvement but, if it works it works ig
-    // selects and highlights specific labels which contains the entry
-    // then is called by the deleter
-    private void highlightSelected() {
-        firstHistoryLabel.setOpaque(true);
-        secondHistoryLabel.setOpaque(true);
-        thirdHistoryLabel.setOpaque(true);
-        fourthHistoryLabel.setOpaque(true);
+    // --- NEW DISPLAY LOGIC ---
+    public void loadHistoryIntoPanels() {
+        List<JournalEntry> entries = JournalFileManager.loadEntries();
 
-        // Reset all to default (no background color)
-        firstHistoryLabel.setBackground(null);
-        secondHistoryLabel.setBackground(null);
-        thirdHistoryLabel.setBackground(null);
-        fourthHistoryLabel.setBackground(null);
+        // Update each panel dynamically
+        updateSinglePanel(firstHIstory, entries.size() > 0 ? entries.get(0) : null);
+        updateSinglePanel(secondHistory, entries.size() > 1 ? entries.get(1) : null);
+        updateSinglePanel(thirdHistory, entries.size() > 2 ? entries.get(2) : null);
+        updateSinglePanel(fouthHistory, entries.size() > 3 ? entries.get(3) : null);
 
-        // Apply highlight based on selectedIndex
-        if (selectedIndex == 0) {
-            firstHistoryLabel.setBackground(java.awt.Color.LIGHT_GRAY);
-        } else if (selectedIndex == 1) {
-            secondHistoryLabel.setBackground(java.awt.Color.LIGHT_GRAY);
-        } else if (selectedIndex == 2) {
-            thirdHistoryLabel.setBackground(java.awt.Color.LIGHT_GRAY);
-        } else if (selectedIndex == 3) {
-            fourthHistoryLabel.setBackground(java.awt.Color.LIGHT_GRAY);
+        if (selectedIndex >= entries.size()) selectedIndex = -1;
+        highlightSelected();
+    }
+
+    // Helper to add text inside a JPanel
+    private void updateSinglePanel(JPanel panel, JournalEntry entry) {
+        if (panel == null) return;
+
+        // 1. Clear previous content (old text)
+        panel.removeAll();
+
+        // 2. Set layout so text fills the box
+        panel.setLayout(new BorderLayout());
+
+        // 3. If there is data, create a temporary label and add it
+        if (entry != null) {
+            JLabel tempLabel = new JLabel(entry.toHtmlDisplay());
+            tempLabel.setVerticalAlignment(SwingConstants.TOP); // Start text at top
+
+            // Allow mouse clicks on the label to pass through to the panel
+            tempLabel.setOpaque(false);
+
+            panel.add(tempLabel, BorderLayout.CENTER);
         }
+
+        // 4. Refresh the UI
+        panel.revalidate();
+        panel.repaint();
     }
 
-
-
-    public void setCLEARButton(){
-        CLEARButton.addActionListener(e->{
-        writeJournal.setText("");
-        });
-    }
-    public void setSAVEButton(){
-        SAVEButton.addActionListener(e->{
+    public void setSAVEButton() {
+        SAVEButton.addActionListener(e -> {
             String text = writeJournal.getText();
-            if (text.isEmpty()){
+            if (text.trim().isEmpty()) {
+                JOptionPane.showMessageDialog(this, "Journal entry cannot be empty.");
                 return;
-            };
-            String mood = chooseBox.getSelectedItem().toString();
+            }
 
-            DateTimeFormatter fmt = DateTimeFormatter.ofPattern("yyyy-MM-dd || HH:mm"); // time format
-            String timestamp = java.time.LocalDateTime.now().format(fmt); // added format, in order to follow the
-            //format set above the time stamp
+            String mood = "General";
+            if (chooseBox.getSelectedItem() != null) {
+                mood = chooseBox.getSelectedItem().toString();
+            }
 
+            DateTimeFormatter fmt = DateTimeFormatter.ofPattern("MMM dd, HH:mm");
+            String timestamp = LocalDateTime.now().format(fmt);
 
             JournalEntry entry = new JournalEntry(mood, text, timestamp);
-
             JournalFileManager.saveEntry(entry);
 
-            loadHistoryIntoLabels();
+            loadHistoryIntoPanels(); // Reload panels
             writeJournal.setText("");
+            chooseBox.setSelectedIndex(0);
         });
-
     }
-    public void setRemoveSelectedButton(){
-        removeSelectedButton.addActionListener(e -> {
-            int index = getSelectedHistoryIndex();
-            if (index != -1) {
-                JournalFileManager.deleteEntry(index);
-                selectedIndex = -1;
-                loadHistoryIntoLabels();
-            }else {
-                // optional: inform user
-                JOptionPane.showMessageDialog(this, "Please select an entry to remove.");
+
+    // --- SELECTION LOGIC (Now on Panels) ---
+
+    private void setPanelSelectionListeners() {
+        // We add listeners to the Panel, not the label
+        addClickToPanel(firstHIstory, 0);
+        addClickToPanel(secondHistory, 1);
+        addClickToPanel(thirdHistory, 2);
+        addClickToPanel(fouthHistory, 3);
+    }
+
+    private void addClickToPanel(JPanel panel, int index) {
+        if (panel == null) return;
+        panel.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                selectedIndex = index;
+                highlightSelected();
             }
         });
     }
 
-    public void loadHistoryIntoLabels() {
-        List<String> entries = JournalFileManager.loadEntries();
+    private void highlightSelected() {
+        Color selectedColor = new Color(220, 220, 220); // Light Gray
+        Color defaultColor = new Color(245, 245, 245);  // Or whatever your default is (or null)
 
-        firstHistoryLabel.setText(entries.size() > 0 ? entries.get(0) : "");
-        secondHistoryLabel.setText(entries.size() > 1 ? entries.get(1) : "");
-        thirdHistoryLabel.setText(entries.size() > 2 ? entries.get(2) : "");
-        fourthHistoryLabel.setText(entries.size() > 3 ? entries.get(3) : "");
+        // Reset backgrounds
+        if(firstHIstory != null) firstHIstory.setBackground(defaultColor);
+        if(secondHistory != null) secondHistory.setBackground(defaultColor);
+        if(thirdHistory != null) thirdHistory.setBackground(defaultColor);
+        if(fouthHistory != null) fouthHistory.setBackground(defaultColor);
 
-        // If the selectedIndex points to an entry that no longer exists, reset it
-        if (selectedIndex >= entries.size()) {
-            selectedIndex = -1;
-        }
-        highlightSelected();
+        // Highlight specific panel
+        if (selectedIndex == 0 && firstHIstory != null) firstHIstory.setBackground(selectedColor);
+        if (selectedIndex == 1 && secondHistory != null) secondHistory.setBackground(selectedColor);
+        if (selectedIndex == 2 && thirdHistory != null) thirdHistory.setBackground(selectedColor);
+        if (selectedIndex == 3 && fouthHistory != null) fouthHistory.setBackground(selectedColor);
     }
 
-
-    private int getSelectedHistoryIndex() {
-        return selectedIndex;
+    public void setCLEARButton() {
+        CLEARButton.addActionListener(e -> writeJournal.setText(""));
     }
+
+    public void setRemoveSelectedButton() {
+        removeSelectedButton.addActionListener(e -> {
+            if (selectedIndex != -1) {
+                List<JournalEntry> entries = JournalFileManager.loadEntries();
+                if (selectedIndex < entries.size()) {
+                    int confirm = JOptionPane.showConfirmDialog(this, "Delete this entry?", "Confirm", JOptionPane.YES_NO_OPTION);
+                    if (confirm == JOptionPane.YES_OPTION) {
+                        JournalFileManager.deleteEntry(selectedIndex);
+                        selectedIndex = -1;
+                        loadHistoryIntoPanels();
+                    }
+                }
+            } else {
+                JOptionPane.showMessageDialog(this, "Select a panel to delete.");
+            }
+        });
+    }
+
 
     public JPanel getMainPanel() {
         return mainPanel;
     }
-
-
 }

@@ -142,17 +142,7 @@
               <background color="-16576740"/>
             </properties>
             <border type="none"/>
-            <children>
-              <component id="7d4a4" class="javax.swing.JLabel" binding="secondHistoryLabel">
-                <constraints>
-                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-                </constraints>
-                <properties>
-                  <foreground color="-394241"/>
-                  <text value="Label"/>
-                </properties>
-              </component>
-            </children>
+            <children/>
           </grid>
           <grid id="259c7" binding="thirdHistory" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
             <margin top="0" left="0" bottom="0" right="0"/>
@@ -165,17 +155,7 @@
               <background color="-16576740"/>
             </properties>
             <border type="none"/>
-            <children>
-              <component id="2518" class="javax.swing.JLabel" binding="thirdHistoryLabel">
-                <constraints>
-                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-                </constraints>
-                <properties>
-                  <foreground color="-394241"/>
-                  <text value="Label"/>
-                </properties>
-              </component>
-            </children>
+            <children/>
           </grid>
           <grid id="ea709" binding="firstHIstory" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
             <margin top="0" left="0" bottom="0" right="0"/>
@@ -188,17 +168,7 @@
               <background color="-16576740"/>
             </properties>
             <border type="none"/>
-            <children>
-              <component id="5ce11" class="javax.swing.JLabel" binding="firstHistoryLabel">
-                <constraints>
-                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-                </constraints>
-                <properties>
-                  <foreground color="-394241"/>
-                  <text value="Label"/>
-                </properties>
-              </component>
-            </children>
+            <children/>
           </grid>
           <grid id="10cc8" binding="fouthHistory" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
             <margin top="0" left="0" bottom="0" right="0"/>
@@ -211,17 +181,7 @@
               <background color="-16576740"/>
             </properties>
             <border type="none"/>
-            <children>
-              <component id="9dd53" class="javax.swing.JLabel" binding="fourthHistoryLabel">
-                <constraints>
-                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-                </constraints>
-                <properties>
-                  <foreground color="-394241"/>
-                  <text value="Label"/>
-                </properties>
-              </component>
-            </children>
+            <children/>
           </grid>
           <component id="adf2f" class="javax.swing.JButton" binding="removeSelectedButton" default-binding="true">
             <constraints>
