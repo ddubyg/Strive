@@ -3,7 +3,10 @@ package JournalPanel;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
+import java.time.*;
+
 
 public class Journal extends JFrame{
 
@@ -51,7 +54,11 @@ public class Journal extends JFrame{
                 return;
             };
             String mood = chooseBox.getSelectedItem().toString();
-            String timestamp = java.time.LocalDateTime.now().toString();
+
+            DateTimeFormatter fmt = DateTimeFormatter.ofPattern("yyyy-MM-dd || HH:mm"); // time format
+            String timestamp = java.time.LocalDateTime.now().format(fmt); // added format, in order to follow the
+            //format set above the time stamp
+
 
             JournalEntry entry = new JournalEntry(mood, text, timestamp);
 
