@@ -89,6 +89,15 @@ public class Profile extends JFrame {
 
     public void setProfilename(){
 
+        if(UserStore.height == null || UserStore.weight == null) {
+            userNameLabel.setText("Guest");
+            ageTextField.setText("0");
+            heightTextField.setText("0");
+            weightProfileTextField.setText("0");
+            editableJlabelBmi.setText("0.0");
+            return;
+        }
+
         userNameLabel.setText(UserStore.displayName);
         ageTextField.setText(UserStore.age);
         heightTextField.setText(UserStore.height);

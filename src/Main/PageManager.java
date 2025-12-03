@@ -181,6 +181,12 @@ public class PageManager extends JFrame {
 
     }
 
+    //getter sa profile
+    public Profile getProfile() {
+        return profile;
+    }
+
+
     public static void main(String[] args) {
 
         new PageManager();

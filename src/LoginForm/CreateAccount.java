@@ -80,6 +80,9 @@ public class CreateAccount {
 
                 UserStore.createProfile();
 
+                //kani bago
+                manager.getProfile().setProfilename();
+
                 // success message
                 JOptionPane.showMessageDialog(manager, "Account created!");
 
