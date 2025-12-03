@@ -49,6 +49,7 @@ public class JournalFileManager {
         return entries;
     }
 
+    // hi im deleter
     public static void deleteEntry(int indexToDelete) {
         List<String> entries = loadEntries();
         String filePath = getUserJournalPath();
