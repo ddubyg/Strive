@@ -44,7 +44,8 @@ public class HomePage extends JFrame {
     private int lastWeekNumber = -1;
 
     public HomePage(){
-        setStreakLabel();
+
+    setWelcome();
 
     }
     //setting welcome
@@ -58,35 +59,6 @@ public class HomePage extends JFrame {
     }
 
 
-    public void setStreakLabel(){
-        STARTButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                LocalDate today = LocalDate.now();
-                int currentWeek = today.get(WeekFields.ISO.weekOfYear());
-
-                if (currentWeek != lastWeekNumber) {
-                    hasCountedThisWeek = false;
-                    lastWeekNumber = currentWeek;
-                }
-                boolean selected =
-                        mondayCheckBox.isSelected() ||
-                                tuesdayCheckBox.isSelected() ||
-                                wednesdayCheckBox.isSelected() ||
-                                thursdayCheckBox.isSelected() ||
-                                fridayCheckBox.isSelected() ||
-                                saturdayCheckBox.isSelected() ||
-                                sundayCheckBox.isSelected();
-
-                if (selected && !hasCountedThisWeek) {
-                    weeklyStreak++;
-                    hasCountedThisWeek = true;
-                }
-                streakLabel.setText(String.valueOf(weeklyStreak));
-
-            }
-        });
-    }
 
 
 }
