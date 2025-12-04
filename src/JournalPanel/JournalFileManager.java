@@ -7,10 +7,23 @@ import LoginForm.UserStore;
 
 public class JournalFileManager {
 
+    // copy of getUserJournalPath
+//    private static String getUserFolder(){
+//        String rootPath = System.getProperty("user.dir");
+//        String userFolder = rootPath + "/userData/" + UserStore.username;
+//
+//        File folder = new File(userFolder);
+//        if(!folder.exists()){
+//            folder.mkdirs();
+//        }
+//
+//        return userFolder + "/journal.txt";
+//    }
+
     private static String getUserJournalPath() {
-        String username = (UserStore.username != null) ? UserStore.username : "default_user";
+//        String username = (UserStore.username != null) ? UserStore.username : "default_user";
         String rootPath = System.getProperty("user.dir");
-        String userFolder = rootPath + "/userData/" + username;
+        String userFolder = rootPath + "/userData/" + UserStore.username;
 
         File folder = new File(userFolder);
         if (!folder.exists()) folder.mkdirs();
@@ -27,12 +40,14 @@ public class JournalFileManager {
         }
     }
 
+    // added String filepath for consistency and ease for the eyes
     public static List<JournalEntry> loadEntries() {
+        String filePath = getUserJournalPath();
         List<JournalEntry> entries = new ArrayList<>();
-        File file = new File(getUserJournalPath());
+        File file = new File(filePath);
         if (!file.exists()) return entries;
 
-        try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
+        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
             String line;
             while ((line = reader.readLine()) != null) {
                 JournalEntry entry = JournalEntry.fromFileString(line);
@@ -45,12 +60,13 @@ public class JournalFileManager {
     }
 
     public static void deleteEntry(int indexToDelete) {
+        String filePath = getUserJournalPath();
         List<JournalEntry> entries = loadEntries();
         if (indexToDelete >= 0 && indexToDelete < entries.size()) {
             entries.remove(indexToDelete);
         }
         // Rewrite file
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(getUserJournalPath()))) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
             for (int i = entries.size() - 1; i >= 0; i--) {
                 writer.write(entries.get(i).toFileString());
                 writer.newLine();

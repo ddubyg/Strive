@@ -1,5 +1,7 @@
 package JournalPanel;
 
+import JournalPanel.JournalFileManager;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
@@ -37,8 +39,13 @@ public class Journal extends JFrame {
     public JButton routineButton;
 
     private int selectedIndex = -1;
+    private DefaultListModel<String> listModel;
+    private JList<String> entryList;
 
     public Journal() {
+        listModel = new DefaultListModel<>();
+        entryList = new JList<>(listModel);
+
         initComponentsSafely(); // Prevent NullPointer crash
 
         // 1. Load Data
@@ -52,6 +59,11 @@ public class Journal extends JFrame {
         // 3. Setup Selection Logic on the PANELS
         setPanelSelectionListeners();
         highlightSelected();
+    }
+
+    //refresher, basically just calls the loadHistory but this gives me less eyestrain and headaches
+    public void refreshJournal() {
+        loadHistoryIntoPanels();
     }
 
     // --- SAFETY CHECK ---
@@ -84,6 +96,8 @@ public class Journal extends JFrame {
         if (selectedIndex >= entries.size()) selectedIndex = -1;
         highlightSelected();
     }
+
+
 
     // Helper to add text inside a JPanel
     private void updateSinglePanel(JPanel panel, JournalEntry entry) {

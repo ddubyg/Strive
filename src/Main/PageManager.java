@@ -30,6 +30,7 @@ public class PageManager extends JFrame {
     RoutineForm routine = new RoutineForm();
     CardioForm cardioForm = new CardioForm();
 
+    // Updated journal buttons so that when the journal button is pressed the journal list is refreshed
     public PageManager() {
 
         setTitle("Strive");
@@ -69,7 +70,10 @@ public class PageManager extends JFrame {
             home.setWelcome();
         });
         // HOME PAGE buttons
-        home.journal.addActionListener(e -> layout.show(container, "journal"));
+        home.journal.addActionListener(e -> {
+            journal.refreshJournal();
+            layout.show(container, "journal");
+        });
         home.profile.addActionListener(e -> {
             profile.setProfilename();
             layout.show(container, "profile");
@@ -82,14 +86,20 @@ public class PageManager extends JFrame {
         journal.homebtn.addActionListener(e -> layout.show(container, "home"));
         journal.profilebtn.addActionListener(e -> layout.show(container, "profile"));
         journal.workoutbtn.addActionListener(e -> layout.show(container, "strength"));
-        journal.journalbtn.addActionListener(e -> layout.show(container, "journal"));
+        journal.journalbtn.addActionListener(e -> {
+            journal.refreshJournal();
+            layout.show(container, "journal");
+        });
         journal.routineButton.addActionListener(e -> layout.show(container, "routine"));
 
         // PROFILE PAGE NAVIGATION
         profile.homebtn.addActionListener(e -> layout.show(container, "home"));
         profile.logoutButton.addActionListener(e -> layout.show(container, "login"));
         profile.workoutbtn.addActionListener(e -> layout.show(container, "strength"));
-        profile.journalbtn.addActionListener(e -> layout.show(container, "journal"));
+        profile.journalbtn.addActionListener(e -> {
+            journal.refreshJournal();
+            layout.show(container, "journal");
+        });
         profile.routineButton.addActionListener(e -> layout.show(container, "routine"));
 
 
@@ -98,7 +108,10 @@ public class PageManager extends JFrame {
         strength.CARDIOButton.addActionListener(e -> layout.show(container, "cardio"));
         strength.hometbn.addActionListener(e -> layout.show(container, "home"));
         strength.workoutbtn.addActionListener(e -> layout.show(container, "strength"));
-        strength.journalbtn.addActionListener(e -> layout.show(container, "journal"));
+        strength.journalbtn.addActionListener(e -> {
+            journal.refreshJournal();
+            layout.show(container, "journal");
+        });
         strength.profilebtn.addActionListener(e -> layout.show(container, "profile"));
         strength.routineButton.addActionListener(e -> layout.show(container, "routine"));
         strength.addWorkoutButton.addActionListener(e -> {
@@ -128,7 +141,10 @@ public class PageManager extends JFrame {
         cardio.STRENGTHButton.addActionListener(e -> layout.show(container, "strength"));
         cardio.HOMEButton.addActionListener(e -> layout.show(container, "home"));
         cardio.workoutBtn.addActionListener(e -> layout.show(container, "strength"));
-        cardio.journalBtn.addActionListener(e -> layout.show(container, "journal"));
+        cardio.journalBtn.addActionListener(e -> {
+            journal.refreshJournal();
+            layout.show(container, "journal");
+        });
         cardio.profilebtn.addActionListener(e -> layout.show(container, "profile"));
         cardio.routineButton.addActionListener(e -> layout.show(container, "routine"));
         cardio.addCardioButton.addActionListener(e -> {
@@ -152,7 +168,10 @@ public class PageManager extends JFrame {
         });
 
         routine.homeBtn.addActionListener(e -> layout.show(container, "home"));
-        routine.journalBtn.addActionListener(e -> layout.show(container, "journal"));
+        routine.journalBtn.addActionListener(e -> {
+            journal.refreshJournal();
+            layout.show(container, "journal");
+        });
         routine.workoutBtn.addActionListener(e -> layout.show(container, "strength"));
         routine.profileBtn.addActionListener(e -> layout.show(container, "profile"));
         routine.routineButton.addActionListener(e -> layout.show(container, "routine"));
@@ -161,7 +180,10 @@ public class PageManager extends JFrame {
         });
 
         cardioForm.homebtn.addActionListener(e -> layout.show(container, "home"));
-        cardioForm.journalBtn.addActionListener(e -> layout.show(container, "journal"));
+        cardioForm.journalBtn.addActionListener(e -> {
+            journal.refreshJournal();
+            layout.show(container, "journal");
+        });
         cardioForm.workoutbtn.addActionListener(e -> layout.show(container, "strength"));
         cardioForm.profileBtn.addActionListener(e -> layout.show(container, "profile"));
         cardioForm.RoutineButton.addActionListener(e -> layout.show(container, "routine"));
