@@ -60,7 +60,7 @@ public class PageManager extends JFrame {
     private void hookNavigation() {
 
         login.CREATEACCOUNTButton.addActionListener(e -> layout.show(container, "createAccount"));
-        createAccount.LOGINButton   .addActionListener(e ->{
+        createAccount.LOGINButton.addActionListener(e ->{
             home.setWelcome();
             layout.show(container, "login");
         });
@@ -68,6 +68,7 @@ public class PageManager extends JFrame {
         login.ACCESSSTRIVEButton.addActionListener(e -> {
 //            layout.show(container, "home");
             home.setWelcome();
+
         });
         // HOME PAGE buttons
         home.journal.addActionListener(e -> {
@@ -78,9 +79,16 @@ public class PageManager extends JFrame {
             profile.setProfilename();
             layout.show(container, "profile");
         });
-        home.home.addActionListener(e -> layout.show(container, "home"));
+        home.home.addActionListener(e ->{
+                    layout.show(container, "home");
+                    home.setWelcome();
+                }
+                );
         home.workout.addActionListener(e -> layout.show(container, "strength"));
         home.routineButton.addActionListener(e -> layout.show(container, "routine"));
+        home.STARTButton.addActionListener(e->{
+            layout.show(container, "routine");
+        });
 
         // JOURNAL PAGE NAVIGATION
         journal.homebtn.addActionListener(e -> layout.show(container, "home"));

@@ -23,6 +23,13 @@ public class UserStore {
         if(height == null || height.equals("0")){
             throw new IllegalArgumentException("Height must be positive.");
         }
+
+    }
+    public static void ensureDisplayName() {
+        if (displayName == null || displayName.isEmpty()) {
+            displayName = username; // Use username as fallback
+            // Optionally update the CSV file here
+        }
     }
 
     public static void createProfile() {
