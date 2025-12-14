@@ -22,65 +22,39 @@ public class RoutineForm extends JFrame{
     private long totalSeconds = 0;
 
     public RoutineForm() {
-        // Layout Setup
+        // ... (Existing Constructor) ...
         putRoutinePanel.setLayout(new BoxLayout(putRoutinePanel, BoxLayout.Y_AXIS));
 
-        // --- START BUTTON LOGIC ---
-        startWorkoutButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if (totalSeconds <= 0) {
-                    JOptionPane.showMessageDialog(mainPanel, "No workouts added or total time is 0!");
-                } else {
-                    // Open the Countdown Timer Window
-                    startCountdown(totalSeconds);
-                }
+        startWorkoutButton.addActionListener(e -> {
+            if (totalSeconds <= 0) {
+                JOptionPane.showMessageDialog(mainPanel, "Total time is 0! Please set a duration.");
+            } else {
+                startCountdown(totalSeconds);
             }
         });
     }
 
-    public void addWorkout(String name, String sets, String reps, String type, String duration) {
-        // 1. Existing Logic to add the card
+    // MODIFIED: No longer takes duration string
+    public void addWorkout(String name, String sets, String reps, String type) {
         int indexCount = (putRoutinePanel.getComponentCount() / 2) + 1;
-        WorkoutCard card = new WorkoutCard(String.valueOf(indexCount), name, sets, reps, type, duration);
+        // The card visual only needs name/sets/reps
+        WorkoutCard card = new WorkoutCard(String.valueOf(indexCount), name, sets, reps, type);
+
         putRoutinePanel.add(card);
         putRoutinePanel.add(Box.createVerticalStrut(10));
         putRoutinePanel.revalidate();
         putRoutinePanel.repaint();
-
-        // 2. NEW: Calculate time and add to total
-        totalSeconds += parseDurationToSeconds(duration);
     }
 
-    // --- HELPER: Convert "1 hr 30 min" to Seconds ---
-    private long parseDurationToSeconds(String durationText) {
-        long seconds = 0;
-
-        // The text looks like "1 hr 30 min" or "45 min" or "2 hr"
-        try {
-            if (durationText.contains("hr")) {
-                // Split by " hr" and take the first part
-                String[] parts = durationText.split(" hr");
-                int hours = Integer.parseInt(parts[0].trim());
-                seconds += (hours * 3600); // 1 hour = 3600 seconds
-
-                // If there is also minutes (e.g., "1 hr 30 min")
-                if (parts.length > 1 && parts[1].contains("min")) {
-                    String minPart = parts[1].replace("min", "").trim();
-                    seconds += (Integer.parseInt(minPart) * 60);
-                }
-            } else if (durationText.contains("min")) {
-                // Just minutes (e.g., "45 min")
-                String minPart = durationText.replace("min", "").trim();
-                seconds += (Integer.parseInt(minPart) * 60);
-            }
-        } catch (NumberFormatException e) {
-            System.out.println("Error parsing time: " + durationText);
-        }
-
-        return seconds;
+    // 2. Set Total Time (Call this when user is done)
+    public void setTotalRoutineTime(long seconds) {
+        this.totalSeconds = seconds;
+        // Optional: Update a label on the routine screen showing "Total Time: 1:30:00"
     }
 
+    public long getTotalSeconds() {
+        return totalSeconds;
+    }
     // --- HELPER: Open a Popup Window for the Timer ---
     private void startCountdown(long startSeconds) {
         // Create a minimal dialog window

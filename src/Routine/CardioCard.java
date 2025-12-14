@@ -13,7 +13,8 @@ public class CardioCard extends JPanel {
     private static final Color ORANGE = new Color(255, 87, 34);
     private static final Color TEXT_GRAY = new Color(150, 150, 150);
 
-    public CardioCard(String index, String type, String details, String duration) {
+    // UPDATED CONSTRUCTOR: Now takes distance and speed separately
+    public CardioCard(String index, String type, String distance, String speed) {
         // 1. Panel Layout
         setOpaque(false);
         setLayout(new BorderLayout(15, 0));
@@ -51,8 +52,15 @@ public class CardioCard extends JPanel {
         lblType.setForeground(TEXT_WHITE);
         lblType.setFont(new Font("SansSerif", Font.BOLD, 16));
 
-        // Details: e.g. "5km | 30 min"
-        String infoText = details + "  |  " + duration;
+        // --- NEW FORMATTING LOGIC HERE ---
+        // Desired Output: "Distance: 5 km  |  Target: 10 km/hr"
+        String infoText = "Distance: " + distance + " km";
+
+        // Only add the speed/target part if the user actually typed something
+        if (speed != null && !speed.isEmpty()) {
+            infoText += "  |  Target: " + speed + " km/hr";
+        }
+
         JLabel lblDetails = new JLabel(infoText);
         lblDetails.setForeground(ORANGE);
         lblDetails.setFont(new Font("SansSerif", Font.PLAIN, 12));

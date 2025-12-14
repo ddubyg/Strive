@@ -15,7 +15,6 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import static Routine.CardioForm.getAdded;
 
 public class PageManager extends JFrame {
     CardLayout layout = new CardLayout();
@@ -127,46 +126,62 @@ public class PageManager extends JFrame {
             String sets = strength.getSets();
             String reps = strength.getReps();
             String type = strength.getTypee();
-            String duration = strength.getDuration();
 
             if (name.isEmpty() || sets.isEmpty() || reps.isEmpty()) {
-                JOptionPane.showMessageDialog(container, "Please fill in all fields");
+                JOptionPane.showMessageDialog(container, "Please fill in Name, Sets, and Reps.");
             } else {
                 try {
-                    // 1. Validate Sets and Reps (Must be numbers)
+                    // 1. Validate Numbers
                     Integer.parseInt(sets);
                     Integer.parseInt(reps);
 
-                    // 2. Validate Duration (Must parse to > 0 seconds)
-                    long checkTime = parseDurationToSeconds(duration);
-                    if (checkTime == 0) {
-                        // Throw specific exception to be caught below
-                        throw new IllegalArgumentException("Invalid Duration");
+                    // 2. Add to Routine (Visual card only)
+                    routine.addWorkout(name, sets, reps, type);
+
+                    // 3. Clear the text fields for the next exercise
+                    strength.clearExerciseInputs();
+
+                    // 4. Ask if they want to add more
+                    int choice = JOptionPane.showConfirmDialog(container,
+                            "Workout added! Do you want to add another exercise?",
+                            "Continue?",
+                            JOptionPane.YES_NO_OPTION);
+
+                    if (choice == JOptionPane.NO_OPTION) {
+                        JOptionPane.showMessageDialog(container,
+                                "Great! Now set the duration in the spinners and click 'Add Time'.");
                     }
 
-                    // 3. Add to Routine (Only if validations pass)
-                    routine.addWorkout(name, sets, reps, type, duration);
-
-                    // 4. Clear Inputs
-                    strength.clearInputs();
-
-                    // 5. Success Message
-                    JOptionPane.showMessageDialog(container, "Workout added successfully!");
-
                 } catch (NumberFormatException ex) {
-                    // Catches Set/Rep errors
-                    JOptionPane.showMessageDialog(container,
-                            "Sets and Reps must be whole numbers (e.g., 3, 12).",
-                            "Input Error",
-                            JOptionPane.ERROR_MESSAGE);
-
-                } catch (IllegalArgumentException ex) {
-                    // Catches Duration errors
-                    JOptionPane.showMessageDialog(container,
-                            "Invalid Duration! Use format '1 hr 30 min' or '45 min'.",
-                            "Time Error",
-                            JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(container, "Sets and Reps must be whole numbers.");
                 }
+            }
+        });
+        strength.addTimeButton.addActionListener(e -> {
+            // 1. Get the time from the spinners
+            long totalSeconds = strength.getDurationInSeconds();
+
+            // 2. Validate
+            if (totalSeconds <= 0) {
+                JOptionPane.showMessageDialog(container,
+                        "Please select a duration (Hours/Minutes) greater than 0.",
+                        "Invalid Time",
+                        JOptionPane.WARNING_MESSAGE);
+            } else {
+                // 3. Send to Routine Form
+                routine.setTotalRoutineTime(totalSeconds);
+
+                // 4. Success Message
+                // Convert back to text just for the message (e.g., "1 hr 30 min")
+                long h = totalSeconds / 3600;
+                long m = (totalSeconds % 3600) / 60;
+                String timeText = (h > 0 ? h + " hr " : "") + (m > 0 ? m + " min" : "");
+
+                JOptionPane.showMessageDialog(container,
+                        "Total duration set to: " + timeText + ".\nYour routine is ready!");
+
+                // 5. Clear the spinners
+                strength.clearTimeInputs();
             }
         });
         // --------------------------------------------------
@@ -181,24 +196,55 @@ public class PageManager extends JFrame {
         });
         cardio.profilebtn.addActionListener(e -> layout.show(container, "profile"));
         cardio.routineButton.addActionListener(e -> layout.show(container, "routine"));
+
+        // --- LISTENER 1: ADD CARDIO EXERCISE ---
         cardio.addCardioButton.addActionListener(e -> {
-            String type = cardio.getCardioType();
+            String type = cardio.getCardioType(); // Gets ComboBox selection
             String f1 = cardio.getField1();
             String f2 = cardio.getField2();
-            String duration = cardio.getDuration();
 
+            // Basic Validation: Just need at least one field filled (like Distance)
             if (f1.isEmpty()) {
-                JOptionPane.showMessageDialog(container, "Please enter distance/intensity.");
+                JOptionPane.showMessageDialog(container, "Please enter distance or intensity (Field 1).");
             } else {
-                // Add to the Display Form
-                cardioForm.addCardio(type, f1, f2, duration);
+                // 1. Add to the Form (Visual only)
+                cardioForm.addCardio(type, f1, f2);
 
-                // Clear inputs
-                cardio.clearInputs();
+                // 2. Clear text inputs
+                cardio.clearExerciseInputs();
 
-                if (getAdded()) {
-                    JOptionPane.showMessageDialog(container, "Cardio Added Successfully!");
+                // 3. Ask to Add More
+                int choice = JOptionPane.showConfirmDialog(container,
+                        "Cardio added! Do you want to add another activity?",
+                        "Continue?",
+                        JOptionPane.YES_NO_OPTION);
+
+                if (choice == JOptionPane.NO_OPTION) {
+                    JOptionPane.showMessageDialog(container,
+                            "Great! Now please set the TOTAL duration in the spinners and click 'Add Time'.");
                 }
+            }
+        });
+
+// --- LISTENER 2: ADD TIME ---
+        cardio.addTimeButton.addActionListener(e -> {
+            long seconds = cardio.getDurationInSeconds();
+
+            if (seconds <= 0) {
+                JOptionPane.showMessageDialog(container, "Please set a duration greater than 0.");
+            } else {
+                // 1. Send total time to CardioForm
+                cardioForm.setTotalCardioTime(seconds);
+
+                // 2. Success Message
+                long h = seconds / 3600;
+                long m = (seconds % 3600) / 60;
+                String timeText = (h > 0 ? h + " hr " : "") + (m > 0 ? m + " min" : "");
+
+                JOptionPane.showMessageDialog(container, "Total Cardio Duration set to: " + timeText);
+
+                // 3. Clear spinners
+                cardio.clearTimeInputs();
             }
         });
 

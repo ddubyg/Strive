@@ -26,49 +26,34 @@ public class StrengthPanel extends JFrame {
     private JTextField exerciseNameTxtField;
     public JButton addWorkoutButton;
     private JSpinner minutesSpinner;
+    public JButton addTimeButton;
 
 
-    public String getExerciseName() {
-        return exerciseNameTxtField.getText();
-    }
-
-    public String getSets() {
-        return setsTextField.getText();
-    }
-
-    public String getReps() {
-        return repsTextField.getText();
-    }
-
+    public String getExerciseName() { return exerciseNameTxtField.getText(); }
+    public String getSets() { return setsTextField.getText(); }
+    public String getReps() { return repsTextField.getText(); }
     public String getTypee() {
-        if (typeComboBox.getSelectedItem() != null) {
-            return typeComboBox.getSelectedItem().toString();
-        }
-        return "General";
+        return (typeComboBox.getSelectedItem() != null) ? typeComboBox.getSelectedItem().toString() : "General";
     }
 
-    // --- UPDATED DURATION LOGIC ---
-    public String getDuration() {
-        // Safe casting to Integer (Spinners usually return Objects)
-        int hours = (Integer) HourSpinner.getValue();
-        int minutes = (Integer) minutesSpinner.getValue();
-
-        // Logic to format it nicely
-        if (hours > 0 && minutes > 0) {
-            return hours + " hr " + minutes + " min";
-        } else if (hours > 0) {
-            return hours + " hr";
-        } else {
-            return minutes + " min";
+    // Helper to get seconds from spinners
+    public long getDurationInSeconds() {
+        try {
+            int h = (Integer) HourSpinner.getValue();
+            int m = (Integer) minutesSpinner.getValue();
+            return (h * 3600L) + (m * 60L);
+        } catch (Exception e) {
+            return 0;
         }
     }
 
-    // --- UPDATED CLEAR INPUTS ---
-    public void clearInputs() {
+    public void clearExerciseInputs() {
         exerciseNameTxtField.setText("");
         setsTextField.setText("");
         repsTextField.setText("");
-        // Reset both spinners to 0
+    }
+
+    public void clearTimeInputs() {
         HourSpinner.setValue(0);
         minutesSpinner.setValue(0);
     }

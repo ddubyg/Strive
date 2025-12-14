@@ -13,12 +13,13 @@ public class WorkoutCard extends JPanel {
     private static final Color TEXT_WHITE = new Color(240, 240, 240);
     private static final Color TEXT_GRAY = new Color(150, 150, 150);
 
-    public WorkoutCard(String index, String exerciseName, String sets, String reps, String type, String duration) {
+    // REMOVED duration from constructor arguments
+    public WorkoutCard(String index, String exerciseName, String sets, String reps, String type) {
         // 1. Panel Settings
         setOpaque(false);
         setLayout(new BorderLayout(15, 0));
         setBorder(BorderFactory.createEmptyBorder(10, 15, 10, 15));
-        setMaximumSize(new Dimension(Integer.MAX_VALUE, 85)); // Slightly taller for extra info
+        setMaximumSize(new Dimension(Integer.MAX_VALUE, 85));
         setPreferredSize(new Dimension(300, 85));
         setAlignmentX(Component.LEFT_ALIGNMENT);
 
@@ -42,7 +43,7 @@ public class WorkoutCard extends JPanel {
         lblIndex.setFont(new Font("SansSerif", Font.BOLD, 14));
         numberPanel.add(lblIndex);
 
-        // 3. The Text Info (Center) - Updated to show Type and Duration
+        // 3. The Text Info (Center)
         JPanel textPanel = new JPanel(new GridLayout(2, 1));
         textPanel.setOpaque(false);
 
@@ -51,9 +52,8 @@ public class WorkoutCard extends JPanel {
         lblName.setForeground(TEXT_WHITE);
         lblName.setFont(new Font("SansSerif", Font.BOLD, 15));
 
-        // Details: Sets x Reps | Duration
-        // Format: "3 sets x 12 reps  |  10 mins"
-        String detailText = sets + " sets x " + reps + " reps  |  " + duration + " ";
+        // Details: Sets x Reps (Removed Duration)
+        String detailText = sets + " sets x " + reps + " reps";
         JLabel lblDetails = new JLabel(detailText);
         lblDetails.setForeground(STRIVE_ORANGE);
         lblDetails.setFont(new Font("SansSerif", Font.PLAIN, 12));
@@ -61,31 +61,23 @@ public class WorkoutCard extends JPanel {
         textPanel.add(lblName);
         textPanel.add(lblDetails);
 
-        // 4. Action Icons (Right) - DELETE BUTTON LOGIC
+        // 4. Action Icons (Right)
         JPanel iconPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
         iconPanel.setOpaque(false);
 
-        // Create the "X" button
         JLabel deleteBtn = new JLabel("✕");
-        deleteBtn.setForeground(Color.RED); // Red color for delete
+        deleteBtn.setForeground(Color.RED);
         deleteBtn.setFont(new Font("SansSerif", Font.BOLD, 16));
         deleteBtn.setCursor(new Cursor(Cursor.HAND_CURSOR));
 
-        // Add Click Listener to Remove this Card
         deleteBtn.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                // Get the parent container (putRoutine)
                 Container parent = getParent();
                 if(parent != null) {
-                    parent.remove(WorkoutCard.this); // Remove this specific card
-
-                    // Note: Removing the 'strut' (gap) is harder dynamically,
-                    // but usually acceptable to leave or requires complex logic.
-                    // For now, we just remove the card.
-
-                    parent.revalidate(); // Refresh layout
-                    parent.repaint();    // Redraw screen
+                    parent.remove(WorkoutCard.this);
+                    parent.revalidate();
+                    parent.repaint();
                 }
             }
         });

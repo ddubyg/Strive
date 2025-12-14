@@ -21,10 +21,10 @@ public class CardioPanel extends JFrame {
     public JButton addCardioButton;
     private JPanel durationPanel;
     private JSpinner minuteSpinner;
+    public JButton addTimeButton;
 
-    public CardioPanel() {
+    public CardioPanel() { }
 
-    }
     public String getCardioType() {
         if (comboBox1.getSelectedItem() != null) {
             return comboBox1.getSelectedItem().toString();
@@ -32,26 +32,27 @@ public class CardioPanel extends JFrame {
         return "Cardio";
     }
 
-    public String getField1() {
-        return textField1.getText(); // e.g. Distance
+    public String getField1() { return textField1.getText(); }
+    public String getField2() { return textField2.getText(); }
+
+    // --- TIME LOGIC (For the Add Time Button) ---
+    public long getDurationInSeconds() {
+        try {
+            int h = (Integer) hourSpinner.getValue();
+            int m = (Integer) minuteSpinner.getValue();
+            return (h * 3600L) + (m * 60L);
+        } catch (Exception e) {
+            return 0;
+        }
     }
 
-    public String getField2() {
-        return textField2.getText(); // e.g. Notes
-    }
-
-    public String getDuration() {
-        int hours = (Integer) hourSpinner.getValue();
-        int minutes = (Integer) minuteSpinner.getValue();
-
-        if (hours > 0 && minutes > 0) return hours + " hr " + minutes + " min";
-        if (hours > 0) return hours + " hr";
-        return minutes + " min";
-    }
-
-    public void clearInputs() {
+    // --- CLEARING INPUTS ---
+    public void clearExerciseInputs() {
         textField1.setText("");
         textField2.setText("");
+    }
+
+    public void clearTimeInputs() {
         hourSpinner.setValue(0);
         minuteSpinner.setValue(0);
     }
