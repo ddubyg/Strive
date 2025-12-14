@@ -10,11 +10,12 @@ import LoginForm.CreateAccount;
 import Routine.RoutineForm;
 import Routine.CardioForm;
 
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
+import static Routine.CardioForm.getAdded;
 
 public class PageManager extends JFrame {
     CardLayout layout = new CardLayout();
@@ -30,7 +31,6 @@ public class PageManager extends JFrame {
     RoutineForm routine = new RoutineForm();
     CardioForm cardioForm = new CardioForm();
 
-    // Updated journal buttons so that when the journal button is pressed the journal list is refreshed
     public PageManager() {
 
         setTitle("Strive");
@@ -66,9 +66,7 @@ public class PageManager extends JFrame {
         });
         // --- GENERAL NAVIGATION (Home, Journal, Profile, Workout) ---
         login.ACCESSSTRIVEButton.addActionListener(e -> {
-//            layout.show(container, "home");
             home.setWelcome();
-
         });
         // HOME PAGE buttons
         home.journal.addActionListener(e -> {
@@ -83,7 +81,7 @@ public class PageManager extends JFrame {
                     layout.show(container, "home");
                     home.setWelcome();
                 }
-                );
+        );
         home.workout.addActionListener(e -> layout.show(container, "strength"));
         home.routineButton.addActionListener(e -> layout.show(container, "routine"));
         home.STARTButton.addActionListener(e->{
@@ -122,28 +120,56 @@ public class PageManager extends JFrame {
         });
         strength.profilebtn.addActionListener(e -> layout.show(container, "profile"));
         strength.routineButton.addActionListener(e -> layout.show(container, "routine"));
+
+        // --- UPDATED STRENGTH ADD BUTTON WITH VALIDATION ---
         strength.addWorkoutButton.addActionListener(e -> {
             String name = strength.getExerciseName();
             String sets = strength.getSets();
             String reps = strength.getReps();
             String type = strength.getTypee();
-            String duration = strength.getDuration(); // e.g., "1 hr 30 min"
+            String duration = strength.getDuration();
 
             if (name.isEmpty() || sets.isEmpty() || reps.isEmpty()) {
                 JOptionPane.showMessageDialog(container, "Please fill in all fields");
             } else {
-                // 1. Add to Routine
-                routine.addWorkout(name, sets, reps, type, duration);
+                try {
+                    // 1. Validate Sets and Reps (Must be numbers)
+                    Integer.parseInt(sets);
+                    Integer.parseInt(reps);
 
-                // 2. Clear Inputs
-                strength.clearInputs();
+                    // 2. Validate Duration (Must parse to > 0 seconds)
+                    long checkTime = parseDurationToSeconds(duration);
+                    if (checkTime == 0) {
+                        // Throw specific exception to be caught below
+                        throw new IllegalArgumentException("Invalid Duration");
+                    }
 
-                // 3. SHOW SUCCESS MESSAGE (Do not switch screens)
-                JOptionPane.showMessageDialog(container, "Workout added successfully!");
+                    // 3. Add to Routine (Only if validations pass)
+                    routine.addWorkout(name, sets, reps, type, duration);
 
-                // Note: We deleted 'layout.show(container, "routine");'
+                    // 4. Clear Inputs
+                    strength.clearInputs();
+
+                    // 5. Success Message
+                    JOptionPane.showMessageDialog(container, "Workout added successfully!");
+
+                } catch (NumberFormatException ex) {
+                    // Catches Set/Rep errors
+                    JOptionPane.showMessageDialog(container,
+                            "Sets and Reps must be whole numbers (e.g., 3, 12).",
+                            "Input Error",
+                            JOptionPane.ERROR_MESSAGE);
+
+                } catch (IllegalArgumentException ex) {
+                    // Catches Duration errors
+                    JOptionPane.showMessageDialog(container,
+                            "Invalid Duration! Use format '1 hr 30 min' or '45 min'.",
+                            "Time Error",
+                            JOptionPane.ERROR_MESSAGE);
+                }
             }
         });
+        // --------------------------------------------------
 
         // CARDIO PANEL: STRENGTH button switches back to StrengthPanel
         cardio.STRENGTHButton.addActionListener(e -> layout.show(container, "strength"));
@@ -170,8 +196,9 @@ public class PageManager extends JFrame {
                 // Clear inputs
                 cardio.clearInputs();
 
-                // Show Success
-                JOptionPane.showMessageDialog(container, "Cardio Added Successfully!");
+                if (getAdded()) {
+                    JOptionPane.showMessageDialog(container, "Cardio Added Successfully!");
+                }
             }
         });
 
@@ -201,14 +228,37 @@ public class PageManager extends JFrame {
                 layout.show(container, "routine");
             }
         });
-
-
     }
+
+    // --- HELPER METHOD FOR DURATION PARSING ---
+    private long parseDurationToSeconds(String durationText) {
+        long seconds = 0;
+        try {
+            // Normalize text to handle case sensitivity
+            String text = durationText.toLowerCase();
+
+            if (text.contains("hr")) {
+                String[] parts = text.split("hr");
+                int hours = Integer.parseInt(parts[0].trim());
+                seconds += (hours * 3600);
+
+                if (parts.length > 1 && parts[1].contains("min")) {
+                    String minPart = parts[1].replace("min", "").trim();
+                    seconds += (Integer.parseInt(minPart) * 60);
+                }
+            } else if (text.contains("min")) {
+                String minPart = text.replace("min", "").trim();
+                seconds += (Integer.parseInt(minPart) * 60);
+            }
+        } catch (Exception e) {
+            return 0; // If parsing fails, return 0 to trigger the error
+        }
+        return seconds;
+    }
+
     //helper
     public void showPage(String name) {
-
         layout.show(container, name);
-
     }
 
     //getter sa profile
@@ -216,9 +266,7 @@ public class PageManager extends JFrame {
         return profile;
     }
 
-
     public static void main(String[] args) {
-
         new PageManager();
     }
 }
