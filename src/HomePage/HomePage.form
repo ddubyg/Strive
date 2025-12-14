@@ -185,18 +185,6 @@
               <foreground color="-1"/>
             </properties>
           </component>
-          <component id="43724" class="javax.swing.JTextField" binding="activityTxtField">
-            <constraints>
-              <grid row="2" column="2" row-span="1" col-span="3" vsize-policy="0" hsize-policy="6" anchor="0" fill="0" indent="0" use-parent-layout="false">
-                <preferred-size width="140" height="25"/>
-                <maximum-size width="140" height="30"/>
-              </grid>
-            </constraints>
-            <properties>
-              <background color="-16576740"/>
-              <foreground color="-1"/>
-            </properties>
-          </component>
           <component id="de6d6" class="javax.swing.JLabel">
             <constraints>
               <grid row="1" column="2" row-span="1" col-span="3" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
@@ -213,6 +201,25 @@
             <properties>
               <background color="-11563778"/>
               <text value="CALCULATE"/>
+            </properties>
+          </component>
+          <component id="2e0ed" class="javax.swing.JComboBox" binding="activityTypeComboBox">
+            <constraints>
+              <grid row="2" column="2" row-span="1" col-span="3" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
+                <preferred-size width="190" height="-1"/>
+                <maximum-size width="190" height="30"/>
+              </grid>
+            </constraints>
+            <properties>
+              <background color="-16576740"/>
+              <foreground color="-394241"/>
+              <model>
+                <item value="1: Sedentary"/>
+                <item value="2: Light Exercise"/>
+                <item value="3: Moderate(Medium)"/>
+                <item value="4: Intense(Heavy)"/>
+                <item value="5: Very Intense(Athlete)"/>
+              </model>
             </properties>
           </component>
         </children>
@@ -279,7 +286,7 @@
                 <properties>
                   <font size="26" style="1"/>
                   <foreground color="-394241"/>
-                  <text value="E.G"/>
+                  <text value=""/>
                 </properties>
               </component>
             </children>

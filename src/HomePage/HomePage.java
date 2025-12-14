@@ -2,10 +2,6 @@ package HomePage;
 
 import LoginForm.UserStore;
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.time.LocalDate;
-import java.time.temporal.WeekFields;
 
 
 public class HomePage extends JFrame {
@@ -39,6 +35,7 @@ public class HomePage extends JFrame {
     private JTextField textField1;
     private JTextField activityTxtField;
     private JButton CALCULATEButton;
+    private JComboBox activityTypeComboBox;
     private int weeklyStreak = 0;
     private boolean hasCountedThisWeek = false;
     private int lastWeekNumber = -1;
