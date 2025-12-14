@@ -53,7 +53,7 @@ public class WorkoutCard extends JPanel {
 
         // Details: Sets x Reps | Duration
         // Format: "3 sets x 12 reps  |  10 mins"
-        String detailText = sets + " sets x " + reps + " reps  |  " + duration + " min";
+        String detailText = sets + " sets x " + reps + " reps  |  " + duration + " ";
         JLabel lblDetails = new JLabel(detailText);
         lblDetails.setForeground(STRIVE_ORANGE);
         lblDetails.setFont(new Font("SansSerif", Font.PLAIN, 12));

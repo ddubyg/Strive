@@ -18,7 +18,7 @@ public class CardioForm extends JFrame{
     public JButton journalBtn;
     public JButton profileBtn;
     public JButton RoutineButton;
-
+    private static boolean added = true;
     private long totalSeconds = 0;
 
     public CardioForm() {
@@ -35,14 +35,60 @@ public class CardioForm extends JFrame{
         });
     }
 
-    // --- Add Method ---
+    public static boolean getAdded() {
+        return added;
+    }
+
+    public static void addedTrue() {
+        added = true;
+    }
+
+    // --- Updated Method with Try-Catch Validation ---
     public void addCardio(String type, String field1, String field2, String duration) {
+
+        // 1. Validate Inputs before adding
+        try {
+            // Check if field1 is a number (e.g., Distance/Sets)
+            // We use Double to allow decimals (e.g., 5.5)
+            if (!field1.isEmpty()) {
+                Double.parseDouble(field1);
+            }
+
+            // Check if field2 is a number (e.g., Speed/Reps)
+            if (!field2.isEmpty()) {
+                Double.parseDouble(field2);
+            }
+
+            // Check if duration creates valid seconds
+            long checkTime = parseDurationToSeconds(duration);
+            if (checkTime == 0) {
+                // If time is 0, we consider it invalid or bad format
+                throw new IllegalArgumentException("Invalid Duration format");
+            }
+
+        } catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(mainPanel,
+                    "Please enter valid numbers for your stats (no letters like 'km' or 'mph').",
+                    "Input Error",
+                    JOptionPane.ERROR_MESSAGE);
+                    added = false;
+            return; // Stop here, do not add the card
+        } catch (IllegalArgumentException ex) {
+            JOptionPane.showMessageDialog(mainPanel,
+                    "Invalid Duration! Use format '1 hr 30 min' or '45 min'.",
+                    "Time Error",
+                    JOptionPane.ERROR_MESSAGE);
+                    added = false;
+            return; // Stop here
+        }
+
+        // 2. Proceed if validation passed
         int index = (putCardioPanel.getComponentCount() / 2) + 1;
 
-        // Combine text fields for details (e.g., "5km, High Intensity")
+        // Combine text fields for details
         String details = field1;
         if(!field2.isEmpty()) {
-            details += ", " + field2;
+            details += "km, " + field2;
         }
 
         CardioCard card = new CardioCard(String.valueOf(index), type, details, duration);
@@ -55,25 +101,32 @@ public class CardioForm extends JFrame{
 
         // Update Timer
         totalSeconds += parseDurationToSeconds(duration);
+        addedTrue();
     }
 
-    // --- Timer Helpers (Same as RoutineForm) ---
+    // --- Timer Helpers ---
     private long parseDurationToSeconds(String durationText) {
         long seconds = 0;
         try {
-            if (durationText.contains("hr")) {
-                String[] parts = durationText.split(" hr");
+            // Normalize text to handle case sensitivity
+            String text = durationText.toLowerCase();
+
+            if (text.contains("hr")) {
+                String[] parts = text.split("hr");
                 int hours = Integer.parseInt(parts[0].trim());
                 seconds += (hours * 3600);
+
                 if (parts.length > 1 && parts[1].contains("min")) {
                     String minPart = parts[1].replace("min", "").trim();
                     seconds += (Integer.parseInt(minPart) * 60);
                 }
-            } else if (durationText.contains("min")) {
-                String minPart = durationText.replace("min", "").trim();
+            } else if (text.contains("min")) {
+                String minPart = text.replace("min", "").trim();
                 seconds += (Integer.parseInt(minPart) * 60);
             }
-        } catch (Exception e) { /* Ignore parsing errors */ }
+        } catch (Exception e) {
+            return 0; // Return 0 if parsing fails
+        }
         return seconds;
     }
 
