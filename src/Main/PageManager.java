@@ -38,7 +38,7 @@ public class PageManager extends JFrame {
         setSize(402, 874);
 
         // para sa login
-        container.add(login.getMainPanel(), "login");
+        container.add(login.getMainPanel(), "log in");
         container.add(createAccount.getMainPanel(), "createAccount");
         // Add all panels to the CardLayout container
         container.add(home.getMainPanel(), "home");
