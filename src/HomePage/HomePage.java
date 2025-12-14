@@ -57,6 +57,12 @@ public class HomePage extends JFrame {
         }
         welcome.setText("Time to level up, " + name + "!");
     }
+
+    public void refreshUserData() {
+        UserStore.ensureDisplayName();
+        setWelcome();
+    }
+
     public void setMaleFemale(){
         genderGroup = new ButtonGroup();
         genderGroup.add(MALERadioButton);

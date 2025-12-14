@@ -312,6 +312,11 @@ public class PageManager extends JFrame {
         return profile;
     }
 
+    public HomePage getHome() {
+        return home;
+    }
+
+
     public static void main(String[] args) {
         new PageManager();
     }

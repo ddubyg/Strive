@@ -35,6 +35,7 @@ public class Login extends JFrame{
 
             if (loginSuccess) {
                 manager.getProfile().setProfilename();
+                manager.getHome().refreshUserData();
                 manager.showPage("home");
                 textField1.setText("");
                 passwordField1.setText("");
