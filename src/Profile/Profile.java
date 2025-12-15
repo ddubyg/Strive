@@ -22,7 +22,6 @@ public class Profile extends JFrame {
     private JTextField heightTextField;
     private JTextField weightProfileTextField;
     private JTextField goalTextField;
-    private JTextField monthlyLogsTextField;
     private JPanel BMIpanel;
     private JLabel userNameLabel;
     private JPanel headPanel;

@@ -176,41 +176,11 @@
                   </component>
                 </children>
               </grid>
-              <component id="693f2" class="javax.swing.JLabel">
-                <constraints>
-                  <grid row="7" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-                </constraints>
-                <properties>
-                  <foreground color="-394241"/>
-                  <text value="     GOAL WEIGHT"/>
-                </properties>
-              </component>
               <component id="b763a" class="javax.swing.JTextField" binding="goalTextField">
                 <constraints>
-                  <grid row="8" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="0" fill="0" indent="0" use-parent-layout="false">
-                    <preferred-size width="120" height="-1"/>
-                    <maximum-size width="120" height="-1"/>
-                  </grid>
-                </constraints>
-                <properties>
-                  <background color="-16576740"/>
-                  <foreground color="-394241"/>
-                </properties>
-              </component>
-              <component id="e606f" class="javax.swing.JLabel">
-                <constraints>
-                  <grid row="7" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-                </constraints>
-                <properties>
-                  <foreground color="-394241"/>
-                  <text value="   MONTHLY LOGS"/>
-                </properties>
-              </component>
-              <component id="f18ca" class="javax.swing.JTextField" binding="monthlyLogsTextField">
-                <constraints>
-                  <grid row="8" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="0" fill="0" indent="0" use-parent-layout="false">
-                    <preferred-size width="120" height="-1"/>
-                    <maximum-size width="120" height="-1"/>
+                  <grid row="8" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="0" fill="0" indent="0" use-parent-layout="false">
+                    <preferred-size width="150" height="-1"/>
+                    <maximum-size width="150" height="-1"/>
                   </grid>
                 </constraints>
                 <properties>
@@ -234,6 +204,15 @@
                 <properties>
                   <foreground color="-11563778"/>
                   <text value="TARGETS"/>
+                </properties>
+              </component>
+              <component id="693f2" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="7" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <foreground color="-394241"/>
+                  <text value="GOAL WEIGHT"/>
                 </properties>
               </component>
             </children>
