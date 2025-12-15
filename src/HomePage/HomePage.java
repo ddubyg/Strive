@@ -165,6 +165,7 @@ public class HomePage extends JFrame {
             ageTxtField.setText(UserStore.age);
             heightTxtfield.setText(UserStore.height);
             textField1.setText(UserStore.weight);
+            //this is correct
         });
     }
 
