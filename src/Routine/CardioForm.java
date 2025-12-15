@@ -34,18 +34,41 @@ public class CardioForm extends JFrame{
         });
     }
 
+    public static boolean getAdded() {
+        return added;
+    }
+
+    public static void setAdded() {
+        added = true;
+    }
+
     // --- UPDATED ADD METHOD ---
-    public void addCardio(String type, String distance, String speed) {
-        int index = (putCardioPanel.getComponentCount() / 2) + 1;
+    // Change void to boolean
+    public boolean addCardio(String type, String distance, String speed) {
+        try {
+            double d = Double.parseDouble(distance);
+            double s = Double.parseDouble(speed);
 
-        // We pass the raw "distance" and "speed" here.
-        // The CardioCard class will add the "km" and "Target: ... km/hr" text.
-        CardioCard card = new CardioCard(String.valueOf(index), type, distance, speed);
+            if (d < 0 || s < 0) {
+                JOptionPane.showMessageDialog(mainPanel, "Distance and Speed cannot be negative.", "Input Error", JOptionPane.ERROR_MESSAGE);
+                return false;
+            }
 
-        putCardioPanel.add(card);
-        putCardioPanel.add(Box.createVerticalStrut(10));
-        putCardioPanel.revalidate();
-        putCardioPanel.repaint();
+            int index = (putCardioPanel.getComponentCount() / 2) + 1;
+
+            CardioCard card = new CardioCard(String.valueOf(index), type, distance, speed);
+
+            putCardioPanel.add(card);
+            putCardioPanel.add(Box.createVerticalStrut(10));
+            putCardioPanel.revalidate();
+            putCardioPanel.repaint();
+
+            return true;
+
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(mainPanel, "Distance and Speed must be valid numbers!", "Input Error", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
     }
 
     public void setTotalCardioTime(long seconds) {

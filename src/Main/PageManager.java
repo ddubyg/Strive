@@ -15,6 +15,8 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import static Routine.CardioForm.getAdded;
+
 
 public class PageManager extends JFrame {
     CardLayout layout = new CardLayout();
@@ -199,29 +201,27 @@ public class PageManager extends JFrame {
 
         // --- LISTENER 1: ADD CARDIO EXERCISE ---
         cardio.addCardioButton.addActionListener(e -> {
-            String type = cardio.getCardioType(); // Gets ComboBox selection
+            String type = cardio.getCardioType();
             String f1 = cardio.getField1();
             String f2 = cardio.getField2();
 
-            // Basic Validation: Just need at least one field filled (like Distance)
             if (f1.isEmpty()) {
                 JOptionPane.showMessageDialog(container, "Please enter distance or intensity (Field 1).");
             } else {
-                // 1. Add to the Form (Visual only)
-                cardioForm.addCardio(type, f1, f2);
+                boolean isSuccess = cardioForm.addCardio(type, f1, f2);
 
-                // 2. Clear text inputs
-                cardio.clearExerciseInputs();
+                if (isSuccess) {
+                    cardio.clearExerciseInputs();
 
-                // 3. Ask to Add More
-                int choice = JOptionPane.showConfirmDialog(container,
-                        "Cardio added! Do you want to add another activity?",
-                        "Continue?",
-                        JOptionPane.YES_NO_OPTION);
+                    int choice = JOptionPane.showConfirmDialog(container,
+                            "Cardio added! Do you want to add another activity?",
+                            "Continue?",
+                            JOptionPane.YES_NO_OPTION);
 
-                if (choice == JOptionPane.NO_OPTION) {
-                    JOptionPane.showMessageDialog(container,
-                            "Great! Now please set the TOTAL duration in the spinners and click 'Add Time'.");
+                    if (choice == JOptionPane.NO_OPTION) {
+                        JOptionPane.showMessageDialog(container,
+                                "Great! Now please set the TOTAL duration in the spinners and click 'Add Time'.");
+                    }
                 }
             }
         });
