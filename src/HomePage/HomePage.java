@@ -33,7 +33,6 @@ public class HomePage extends JFrame {
     private JRadioButton FEMALERadioButton;
     private JTextField heightTxtfield;
     private JTextField textField1;
-    private JTextField activityTxtField;
     private JButton CALCULATEButton;
     private JComboBox activityTypeComboBox;
     private int weeklyStreak = 0;
@@ -46,6 +45,7 @@ public class HomePage extends JFrame {
         UserStore.ensureDisplayName();
         setupCalorieCalculator();
         setMaleFemale();
+
     }
     //setting welcome
     public void setWelcome() {
@@ -85,6 +85,17 @@ public class HomePage extends JFrame {
 
 
     }
+    private double getActivityMultiplier(int index) {
+        return switch (index) {
+            case 0 -> 1.2;   // Sedentary
+            case 1 -> 1.375; // Light
+            case 2 -> 1.55;  // Moderate
+            case 3 -> 1.725; // Intense
+            case 4 -> 1.9;   // Athlete
+            default -> throw new IllegalArgumentException("Invalid activity level");
+        };
+    }
+
 //    Code	Activity Level
 //1	Sedentary	Little to no exercise
 //2	Light exercise 1–3 days/week
@@ -92,15 +103,20 @@ public class HomePage extends JFrame {
 //4	Intense (Heavy)	Hard exercise 6–7 days/week
 //5	Very Intense / Athlete	Training twice per day
     // for ui ni siya
+
     private void setupCalorieCalculator() {
 
         CALCULATEButton.addActionListener(e -> {
+            int selectedIndex = activityTypeComboBox.getSelectedIndex();
+            if (selectedIndex == -1) {
+                throw new IllegalArgumentException("Please select an activity level.");
+            }
 
             try {
                 int age = Integer.parseInt(UserStore.age);
                 double height = Double.parseDouble(UserStore.height);
                 double weight = Double.parseDouble(UserStore.weight); // assuming this is weight
-                double activityLevel = Double.parseDouble(activityTxtField.getText());
+                double activityLevel = getActivityMultiplier(selectedIndex);
 
                 // VALIDATION
                 if (age <= 0 || height <= 0 || weight <= 0 || activityLevel <= 0) {
