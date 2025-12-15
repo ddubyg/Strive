@@ -135,7 +135,7 @@ public class HomePage extends JFrame {
                     BMR = 66.47 + (13.75 * weight) + (5.003 * height) - (6.755 * age);
                 } else {
                     // Female BMR
-                    BMR = 655.1 + (9.563 * weight) + (1.850 * height) - (4.676 * age);
+                    BMR = 65.1 + (9.563 * weight) + (1.850 * height) - (4.676 * age);
                 }
 
                 // TOTAL CALORIES
