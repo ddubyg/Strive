@@ -5,7 +5,7 @@ import javax.swing.*;
 
 
 public class HomePage extends JFrame {
-   /* private Journal journal1;*/
+    /* private Journal journal1;*/
 
     public JPanel mainPanel;
     private UserStore login;
@@ -40,11 +40,17 @@ public class HomePage extends JFrame {
     private int lastWeekNumber = -1;
     private ButtonGroup genderGroup;
 
+
+
     public HomePage(){
 
         UserStore.ensureDisplayName();
+
+
         setupCalorieCalculator();
         setMaleFemale();
+        setCALCULATECALORIESButton();
+
 
     }
     //setting welcome
@@ -107,15 +113,16 @@ public class HomePage extends JFrame {
     private void setupCalorieCalculator() {
 
         CALCULATEButton.addActionListener(e -> {
+
             int selectedIndex = activityTypeComboBox.getSelectedIndex();
             if (selectedIndex == -1) {
                 throw new IllegalArgumentException("Please select an activity level.");
             }
 
             try {
-                int age = Integer.parseInt(UserStore.age);
-                double height = Double.parseDouble(UserStore.height);
-                double weight = Double.parseDouble(UserStore.weight); // assuming this is weight
+                int age = Integer.parseInt(ageTxtField.getText());
+                double height = Double.parseDouble(heightTxtfield.getText());
+                double weight = Double.parseDouble(textField1.getText()); // assuming this is weight
                 double activityLevel = getActivityMultiplier(selectedIndex);
 
                 // VALIDATION
@@ -135,7 +142,8 @@ public class HomePage extends JFrame {
                     BMR = 66.47 + (13.75 * weight) + (5.003 * height) - (6.755 * age);
                 } else {
                     // Female BMR
-                    BMR = 65.1 + (9.563 * weight) + (1.850 * height) - (4.676 * age);
+                    // Sakto rani
+                    BMR = 655.1 + (9.563 * weight) + (1.850 * height) - (4.676 * age);
                 }
 
                 // TOTAL CALORIES
@@ -149,6 +157,14 @@ public class HomePage extends JFrame {
             } catch (IllegalArgumentException ex) {
                 JOptionPane.showMessageDialog(this, ex.getMessage());
             }
+        });
+    }
+
+    private void setCALCULATECALORIESButton(){
+        CALCULATECALORIESButton.addActionListener(e->{
+            ageTxtField.setText(UserStore.age);
+            heightTxtfield.setText(UserStore.height);
+            textField1.setText(UserStore.weight);
         });
     }
 
