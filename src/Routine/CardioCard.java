@@ -58,7 +58,7 @@ public class CardioCard extends JPanel {
 
         // Only add the speed/target part if the user actually typed something
         if (speed != null && !speed.isEmpty()) {
-            infoText += "  |  Target: " + speed + " km/hr";
+            infoText += "  |  Target: " + speed + " min/km";
         }
 
         JLabel lblDetails = new JLabel(infoText);

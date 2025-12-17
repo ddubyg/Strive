@@ -139,7 +139,7 @@ public class HomePage extends JFrame {
 
                 if (MALERadioButton.isSelected()) {
                     // Male BMR
-                    BMR = 66.47 + (13.75 * weight) + (5.003 * height) - (6.755 * age);
+                    BMR = 664.7 + (13.75 * weight) + (5.003 * height) - (6.755 * age);
                 } else {
                     // Female BMR
                     // Sakto rani

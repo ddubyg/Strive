@@ -116,7 +116,7 @@
           </component>
           <component id="fa044" class="javax.swing.JLabel">
             <constraints>
-              <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <foreground color="-1"/>
@@ -125,12 +125,12 @@
           </component>
           <component id="d00e1" class="javax.swing.JRadioButton" binding="MALERadioButton" default-binding="true">
             <constraints>
-              <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <background color="-16108447"/>
               <foreground color="-1"/>
-              <text value="MALE"/>
+              <text value="M"/>
             </properties>
           </component>
           <component id="9e04d" class="javax.swing.JRadioButton" binding="FEMALERadioButton" default-binding="true">
@@ -140,7 +140,7 @@
             <properties>
               <background color="-16108447"/>
               <foreground color="-1"/>
-              <text value="FEMALE"/>
+              <text value="F"/>
             </properties>
           </component>
           <component id="b7d6a" class="javax.swing.JLabel">
@@ -207,8 +207,8 @@
           <component id="2e0ed" class="javax.swing.JComboBox" binding="activityTypeComboBox">
             <constraints>
               <grid row="2" column="2" row-span="1" col-span="3" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
-                <preferred-size width="190" height="-1"/>
-                <maximum-size width="190" height="30"/>
+                <preferred-size width="170" height="-1"/>
+                <maximum-size width="170" height="30"/>
               </grid>
             </constraints>
             <properties>
